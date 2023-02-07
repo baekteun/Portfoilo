@@ -23,7 +23,6 @@
 	"editor.minimap.enabled": true,
   	"editor.minimap.renderCharacters": true,
 	"editor.overviewRulerBorder": false,
-  	"editor.renderIndentGuides": false,
   	"editor.renderLineHighlight": "all",
 	"workbench.editor.showIcons": true,
 	"workbench.editor.tabCloseButton": "left",
@@ -168,5 +167,6 @@
 				}
 			},
 		]
-	}
+	},
+	"editor.guides.indentation": false
 }

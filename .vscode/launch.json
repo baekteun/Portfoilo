@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug App",
+      "program": "${workspaceFolder:ProjectPortfoilo}/.build/debug/App",
+      "args": [],
+      "cwd": "${workspaceFolder:ProjectPortfoilo}",
+      "preLaunchTask": "swift: Build Debug App"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Release App",
+      "program": "${workspaceFolder:ProjectPortfoilo}/.build/release/App",
+      "args": [],
+      "cwd": "${workspaceFolder:ProjectPortfoilo}",
+      "preLaunchTask": "swift: Build Release App"
+    }
+  ]
+}

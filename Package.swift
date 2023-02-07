@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "spa-template",
+    name: "ProjectPortfoilo",
     platforms: [
         .macOS(.v10_15)
     ],

@@ -1,0 +1,172 @@
+// https://macromates.com/manual/en/language_grammars
+{
+	"files.exclude": {
+		".webber/*.json": true,
+		".webber/dev": true,
+		".webber/node_modules": true,
+		".webber/release": true,
+		"*.xc*": true,
+		"*.xco*": true,
+		"**/.build": true,
+		"**/.swiftpm": true,
+		"Package.resolved": true
+	},
+	"sde.buildOnSave": false,
+	"terminal.integrated.fontFamily": "monospace",
+	"terminal.integrated.fontSize": 14,
+	"terminal.integrated.lineHeight": 1.23,
+	"editor.fontLigatures": true,
+	"editor.fontFamily": "Verdana",
+	"editor.fontSize": 14,
+	"editor.fontWeight": "500",
+  	"editor.lineHeight": 20,
+	"editor.minimap.enabled": true,
+  	"editor.minimap.renderCharacters": true,
+	"editor.overviewRulerBorder": false,
+  	"editor.renderIndentGuides": false,
+  	"editor.renderLineHighlight": "all",
+	"workbench.editor.showIcons": true,
+	"workbench.editor.tabCloseButton": "left",
+	"workbench.colorCustomizations": {
+		"editor.background": "#1e2427",
+		"editor.selectionBackground": "#635F69",
+		"editor.lineHighlightBackground": "#192833",
+		"editorCursor.foreground": "#FFFFFF"
+	},
+	"editor.tokenColorCustomizations": {
+		"textMateRules": [
+			{
+				"scope": "comment",
+				"settings": {
+				  "foreground": "#8B8B8B",
+				  "fontStyle": ""
+				}
+			},
+			{
+				"name": "self, super, bool, import, return, continue, for, break, func, class, import Library",
+				"scope": [
+					"variable.language",
+					"constant.language",
+					"keyword.control",
+					"storage.modifier.swift",
+					"keyword",
+					"storage.type.struct.swift",
+					"storage.type.class.swift",
+					"storage.type.extension.swift",
+					"storage.type.enum.swift"
+				],
+				"settings": {
+					"foreground": "#c2f37e",
+					"fontStyle": ""
+				}
+			},
+			{
+				"name": "variables, struct title, enum title, class title",
+				"scope": [
+					"variable.other",
+					"entity.name.type.struct",
+					"entity.name.type.enum",
+					"entity.name.type.class"
+				],
+				"settings": {
+					"foreground": "#5DD8FF",
+					"fontStyle": ""
+				}
+			},
+			{
+				"name": "number values, strings",
+				"scope": [
+					"constant.numeric",
+					"string",
+					"constant.character.escaped",
+					"constant.character.escape",
+					"string source"
+				],
+				"settings": {
+					"foreground": "#cbb7eb",
+					"fontStyle": ""
+				}
+			},
+			{
+				"name": "simple declarative function name",
+				"scope": [
+					"support.variable",
+					"support.function"
+				],
+				"settings": {
+					"foreground": "#e69a58",
+					"fontStyle": ""
+				}
+			},
+			{
+				"name": "import Library",
+				"scope": [
+					"source",
+					"entity.name.type"
+				],
+				"settings": {
+					"foreground": "#E9E2DE",
+					"fontStyle": ""
+				}
+			},
+			{
+				"name": ":String, :Int",
+				"scope": "support.type",
+				"settings": {
+					"foreground": "#84afcf",
+					"fontStyle": ""
+				}
+			},
+			{
+				"name": "import Library",
+				"scope": "meta.definition.type.class.swift",
+				"settings": {
+					"foreground": "#e08273",
+					"fontStyle": ""
+				}
+			},
+			{
+				"name": "import Library",
+				"scope": [
+					"punctuation.section.function.begin.swift",
+					"punctuation.section.function.end.swift",
+					"punctuation.definition.type.begin.swift",
+					"punctuation.definition.type.end.swift",
+					"meta.parameter-clause.swift",
+					"punctuation.definition.arguments.begin.swift",
+					"punctuation.definition.arguments.end.swift",
+					"meta.function-call.swift",
+					"meta.definition.type.body.swift"
+				],
+				"settings": {
+					"foreground": "#FFFFFF",
+					"fontStyle": ""
+				}
+			},
+			{
+				"name": "import Library",
+				"scope": [
+					"meta.definition.function.swift",
+					"meta.function-call.swift",
+					"entity.name.function.swift"
+				],
+				"settings": {
+					"foreground": "#71bdd6",
+					"fontStyle": ""
+				}
+			},
+			{
+				"name": "import Library",
+				"scope": [
+					"storage.modifier.attribute.swift",
+					"storage.type.function.swift",
+					"storage.type.class.swift"
+				],
+				"settings": {
+					"foreground": "#cafc6f",
+					"fontStyle": ""
+				}
+			},
+		]
+	}
+}

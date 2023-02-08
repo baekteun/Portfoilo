@@ -2,6 +2,7 @@ import Web
 
 final class ProjectListStyle: Stylesheet {
     required init() { super.init() }
+
     @Rules
     override var rules: Stylesheet.RuleItems {
         CSSRule(Body.pointer)

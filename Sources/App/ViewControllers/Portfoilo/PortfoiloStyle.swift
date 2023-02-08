@@ -28,11 +28,12 @@ final class PortfoiloStyle: Stylesheet {
             .zIndex(0)
             .backgroundColor(r: 6, g: 6, b: 6, important: true)
             .backgroundRepeat(.noRepeat)
+            .backgroundImage("https://user-images.githubusercontent.com/74440939/217517235-98eca9ea-9092-4e03-b54f-9b3f0771a780.jpeg")
 
         CSSRule(Class.Portfoilo.iPhone14Pro.inside(Class.Portfoilo.deviceScreen))
             .borderRadius(all: 49.px)
             .height(868.px)
-            .width(428.px)
+            .width(405.px)
 
         CSSRule(Class.Portfoilo.device.inside(Class.Portfoilo.deviceScreen))
             .backgroundPosition(.axis(h: .percent(50), v: .center))
@@ -47,7 +48,7 @@ final class PortfoiloStyle: Stylesheet {
             ])
             .height(868.px)
             .padding(all: 19.px)
-            .width(428.px)
+            .width(405.px)
             .backgroundColor(.init(.custom("#010101")))
             .borderRadius(all: .length(68.px))
             .zIndex(1)
@@ -94,6 +95,17 @@ final class PortfoiloStyle: Stylesheet {
             .top(200.px)
             .width(3.px)
 
+        CSSRule(Class.Portfoilo.statusBar)
+            .margin(v: 0, h: .auto)
+            .height(35.px)
+            .display(.flex)
+            .justifyContent(.spaceBetween)
+            .position(.absolute)
+            .top(9.px)
+            .left(5.percent)
+            .right(5.percent)
+            .width(333.px)
+
         CSSRule(
             Class.Portfoilo.iPhoneButton,
             Class.Portfoilo.iPhoneButton.before,
@@ -123,5 +135,6 @@ extension Class {
         static let iPhone14Pro: Class = "iPhone14Pro"
         static let iPhoneButton: Class = "iPhoneButton"
         static let iPhonePower: Class = "iPhonePower"
+        static let statusBar: Class = "StatusBar"
     }
 }

@@ -85,20 +85,9 @@ final class ProjectListViewController: ViewController {
                 }
                 .flexGrow(1)
 
-                Div {
-                    ForEach(project.projectInfos) { info in
-                        Div {
-                            H3(info.section)
-
-                            P(info.content)
-                                .lineHeight(25.px)
-                        }
-                        .lineHeight(5.px)
-                        .paddingBottom(10.px)
-                    }
-                }
-                .flexGrow(9)
-                .paddingLeft(50.px)
+                ProjectInfoView(projectInfo: project.projectInfo)
+                    .flexGrow(9)
+                    .paddingLeft(50.px)
             }
             .display(.flex)
             .flexDirection(.row)

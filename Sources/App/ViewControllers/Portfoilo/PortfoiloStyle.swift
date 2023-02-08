@@ -13,7 +13,32 @@ final class PortfoiloStyle: Stylesheet {
         CSSRule(Class.Portfoilo.device)
             .position(.relative)
             .transform(.scale(1, 1))
+            .transformOrigin(.value(x: .center, y: .top))
             .zIndex(1)
+
+        CSSRule(Class.Portfoilo.phone)
+            .transition([.all], duration: .seconds(0.2), timingFunction: .ease)
+            .animationName("move")
+            .animationDuration(1.s)
+
+        CSSRule(Class.Portfoilo.deviceScreen)
+            .display(.flex)
+            .flexDirection(.column)
+            .overflow(.hidden)
+            .zIndex(0)
+            .backgroundColor(r: 6, g: 6, b: 6, important: true)
+            .backgroundRepeat(.noRepeat)
+
+        CSSRule(Class.Portfoilo.iPhone14Pro.inside(Class.Portfoilo.deviceScreen))
+            .borderRadius(all: 49.px)
+            .height(868.px)
+            .width(428.px)
+
+        CSSRule(Class.Portfoilo.device.inside(Class.Portfoilo.deviceScreen))
+            .backgroundPosition(.axis(h: .percent(50), v: .center))
+            .backgroundSize(all: .cover)
+            .objectFit(.cover)
+            .position(.relative)
 
         CSSRule(Class.Portfoilo.deviceFrame)
             .boxShadow([
@@ -21,36 +46,15 @@ final class PortfoiloStyle: Stylesheet {
                 BoxShadowValue(h: 0, v: 0, blur: 0, spread: 6.px, color: .init(.custom("#342c3f")), inset: true)
             ])
             .height(868.px)
+            .padding(all: 19.px)
             .width(428.px)
             .backgroundColor(.init(.custom("#010101")))
             .borderRadius(all: .length(68.px))
-            .padding(all: 19.px)
             .zIndex(1)
-
-        CSSRule(Class.Portfoilo.phone)
-            .borderRadius(all: 68.px)
-            .transition([.all], duration: .seconds(0.2), timingFunction: .ease)
-            .animationName("move")
-            .animationDuration(1.s)
-
-        Keyframes("move")
-            .from {
-                Top(-434.px)
-                Transform(.scale(0, 0))
-            }
-            .to {
-                Top(0)
-                Transform(.scale(1, 1))
-            }
 
         CSSRule(Class.Portfoilo.iPhone14Pro)
             .height(868.px)
             .width(428.px)
-            
-
-        CSSRule(Class.Portfoilo.deviceFrame)
-            .position(.relative)
-            .transform(.scale(1, 1))
 
         CSSRule(Class.Portfoilo.iPhoneButton)
             .backgroundColor(.init(.custom("#1b1721")))
@@ -98,6 +102,15 @@ final class PortfoiloStyle: Stylesheet {
         )
         .transition([.init("background")], duration: .seconds(2))
         .transitionTimingFunction(.ease)
+
+        // MARK: - Keyframes
+        Keyframes("move")
+            .from {
+                Transform(.scale(0, 0))
+            }
+            .to {
+                Transform(.scale(1, 1))
+            }
     }
 }
 
@@ -105,6 +118,7 @@ extension Class {
     struct Portfoilo {
         static let phone: Class = "Phone"
         static let device: Class = "Device"
+        static let deviceScreen: Class = "DeviceScreen"
         static let deviceFrame: Class = "DeviceFrame"
         static let iPhone14Pro: Class = "iPhone14Pro"
         static let iPhoneButton: Class = "iPhoneButton"

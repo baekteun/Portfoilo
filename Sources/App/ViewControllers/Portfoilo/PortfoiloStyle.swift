@@ -166,7 +166,6 @@ final class PortfoiloStyle: Stylesheet {
             .marginTop(2.rem)
             .opacity(1)
             .pointerEvents(.none)
-            .custom("transform", "scale(0.9) translateZ(0px)")
             .textAlign(.left)
 
         CSSRule(Class.Portfoilo.dynamicIslandProfile.inside(Class.Portfoilo.profileImage))

@@ -7,10 +7,10 @@ final class PortfoiloViewController: ViewController {
 
     @DOM override var body: DOM.Content {
         PortfoiloStyle()
-        dynamicIslandContentActive().disabled(self.$isCollapsed)
-        dynamicIslandContentInActive().disabled(self.$isCollapsed.map { !$0 })
-        dynamicIslandButtonActive().disabled(self.$isCollapsed)
-        dynamicIslandButtonInActive().disabled(self.$isCollapsed.map { !$0 })
+        dynamicIslandContentActive().disabled(self.$isCollapsed.map { !$0 })
+        dynamicIslandContentInActive().disabled(self.$isCollapsed)
+        dynamicIslandButtonActive().disabled(self.$isCollapsed.map { !$0 })
+        dynamicIslandButtonInActive().disabled(self.$isCollapsed)
 
         Div {
             Div {
@@ -20,6 +20,8 @@ final class PortfoiloViewController: ViewController {
                             .color(.white)
                             .fontSize(.large)
                             .fontWeight(.init("500"))
+                            .textAlign(.right)
+                            .marginLeft(8.px)
 
                         Div {
                             Div {
@@ -43,7 +45,6 @@ final class PortfoiloViewController: ViewController {
                                                 .color(.white)
                                                 .whiteSpace(.nowrap)
                                         }
-                                        .custom("transform", "scale(0.9) translateZ(0px)")
                                         .class([.Portfoilo.dynamicIslandName])
 
                                         Div {
@@ -76,6 +77,37 @@ final class PortfoiloViewController: ViewController {
                             .class([.Portfoilo.dynamicIslandHidden])
                         }
                         .class([.Portfoilo.dynamicIslandContainer])
+
+                        Div {
+                            Div {
+                                Img()
+                                    .srcSet("images/statusBar/cellularbars.svg")
+                                    .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
+                                    .width(28.px)
+                                    .height(24.px)
+
+                                Img()
+                                    .srcSet("images/statusBar/wifi.svg")
+                                    .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
+                                    .width(24.px)
+                                    .height(24.px)
+                                    .padding(v: 0, h: 8.px)
+
+                                Img()
+                                    .srcSet("images/statusBar/battery.75.svg")
+                                    .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
+                                    .width(32.px)
+                                    .height(32.px)
+                            }
+                            .display(.flex)
+                            .alignItems(.center)
+                            .height(16.px)
+                            .transform(.scale(0.8, 0.8))
+                            .transformOrigin(.init("right center"))
+                        }
+                        .marginRight(-5.75.px)
+                        .custom("width", "fit-content")
+                        .display(.flex)
                     }
                     .class([.Portfoilo.statusBar])
                     .zIndex(1)

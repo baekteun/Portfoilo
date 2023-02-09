@@ -122,8 +122,9 @@ final class PortfoiloViewController: ViewController {
             }
             .class(.Portfoilo.iPhone14Pro)
         }
-        .class(.Portfoilo.deviceFrame, .Portfoilo.phone, .Portfoilo.device)
-        .left(30.px)
+        .class([.Portfoilo.deviceFrame, .Portfoilo.phone, .Portfoilo.device])
+        .float(.right)
+        .right(20.px)
     }
 
     override func buildUI() {

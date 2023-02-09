@@ -57,6 +57,31 @@ final class PortfoiloStyle: Stylesheet {
             .height(868.px)
             .width(428.px)
 
+        CSSRule(Class.Portfoilo.iPhoneCamera.before)
+            .pointerEvents(.none)
+            .position(.absolute)
+            .property(.content, "")
+            .custom("background", "radial-gradient(farthest-corner at 20% 20%,#6074bf 0,transparent 40%),radial-gradient(farthest-corner at 80% 80%,#513785 0,#24555e 20%,transparent 50%)")
+            .borderRadius(all: 50.percent)
+            .boxShadow(h: 0, v: 0, blur: 1.px, spread: 1.px, color: .init(.init("#ffffff0d")))
+            .height(9.px)
+            .left(50.percent)
+            .marginLeft(36.px)
+            .top(42.px)
+            .width(9.px)
+
+        CSSRule(Class.Portfoilo.iPhoneCamera.after)
+            .pointerEvents(.none)
+            .position(.absolute)
+            .property(.content, "")
+            .background(.init("#010101"))
+            .borderRadius(all: 17.px)
+            .height(33.px)
+            .left(50.percent)
+            .marginLeft(-60.px)
+            .top(30.px)
+            .width(74.px)
+
         CSSRule(Class.Portfoilo.iPhoneButton)
             .backgroundColor(.init(.custom("#1b1721")))
             .borderRadius(all: .length(2.px))
@@ -105,6 +130,61 @@ final class PortfoiloStyle: Stylesheet {
             .left(5.percent)
             .right(5.percent)
             .width(333.px)
+            .alignItems(.center)
+
+        CSSRule(Class.Portfoilo.dynamicIslandContainer)
+            .alignItems(.center)
+            .width(100.percent)
+            .height(35.px)
+            .display(.flex)
+            .right(0)
+            .left(0)
+            .top(0)
+            .position(.absolute)
+
+        CSSRule(Class.Portfoilo.dynamicIslandHidden)
+            .backgroundColor(.transparent)
+            .justifyContent(.center)
+            .alignItems(.center)
+            .custom("justify-items", "center")
+            .width(100.percent)
+            .height(100.percent)
+            .display(.grid)
+            .zIndex(10)
+
+        CSSRule(Class.Portfoilo.dynamicIslandProfile)
+            .position(.relative)
+            .custom("margin", "auto")
+            .custom("aspect-ratio", "1/1")
+            .height(75.percent)
+            .textAlign(.center)
+            .marginLeft(0.75.rem)
+
+        CSSRule(Class.Portfoilo.dynamicIslandName)
+            .paddingLeft(0.5.rem)
+            .width(10.rem)
+            .marginTop(2.rem)
+            .opacity(1)
+            .pointerEvents(.none)
+            .custom("transform", "scale(0.9) translateZ(0px)")
+            .textAlign(.left)
+
+        CSSRule(Class.Portfoilo.dynamicIslandProfile.inside(Class.Portfoilo.profileImage))
+            .position(.absolute)
+            .width(100.percent)
+            .height(100.percent)
+            .top(0.px)
+            .left(0.px)
+            .borderRadius(all: .length(9999.px))
+
+        CSSRule(Class.Portfoilo.dynamicIslandIcon)
+            .position(.relative)
+            .display(.grid)
+            .width(48.px)
+            .height(48.px)
+            .borderRadius(all: .length(100.px))
+            .custom("margin", "auto")
+            .custom("transform", "scale(0.9) translateZ(0px)")
 
         CSSRule(
             Class.Portfoilo.iPhoneButton,
@@ -133,8 +213,18 @@ extension Class {
         static let deviceScreen: Class = "DeviceScreen"
         static let deviceFrame: Class = "DeviceFrame"
         static let iPhone14Pro: Class = "iPhone14Pro"
+        static let iPhoneCamera: Class = "iPhoneCamera"
         static let iPhoneButton: Class = "iPhoneButton"
         static let iPhonePower: Class = "iPhonePower"
         static let statusBar: Class = "StatusBar"
+        static let dynamicIslandContainer: Class = "DynamicIslandContainer"
+        static let dynamicIslandHidden: Class = "DynamicIslandHidden"
+        static let dynamicIsland: Class = "DynamicIsland"
+        static let dynamicIslandContent: Class = "DynamicIslandContent"
+        static let dynamicIslandContentInActive: Class = "DynamicIslandContent"
+        static let dynamicIslandProfile: Class = "DynamicIslandProfile"
+        static let dynamicIslandName: Class = "DynamicIslandName"
+        static let dynamicIslandIcon: Class = "DynamicIslandIcon"
+        static let profileImage: Class = "ProfileImage"
     }
 }

@@ -3,22 +3,86 @@ import Web
 final class PortfoiloViewController: ViewController {
     private var value: JSValue?
     @State var dateString = "00:00"
+    @State var isCollapsed = false
 
     @DOM override var body: DOM.Content {
         PortfoiloStyle()
+        dynamicIslandContentActive().disabled(self.$isCollapsed)
+        dynamicIslandContentInActive().disabled(self.$isCollapsed.map { !$0 })
+        dynamicIslandButtonActive().disabled(self.$isCollapsed)
+        dynamicIslandButtonInActive().disabled(self.$isCollapsed.map { !$0 })
+
         Div {
             Div {
                 Div {
                     Div {
-                        P(self._dateString)
+                        P(self.$dateString)
                             .color(.white)
                             .fontSize(.large)
-                            .fontWeight(.bold)
+                            .fontWeight(.init("500"))
+
+                        Div {
+                            Div {
+                                Div {
+                                    Div {
+                                        Div {
+                                            Img()
+                                                .src("https://avatars.githubusercontent.com/u/74440939?v=4")
+                                                .class([.Portfoilo.profileImage])
+                                        }
+                                        .class([.Portfoilo.dynamicIslandProfile])
+
+                                        Div {
+                                            P("Mobile")
+                                                .fontSize(0.875.rem)
+                                                .margin(all: 0)
+                                                .color(r: 107, g: 114, b: 128)
+
+                                            H2("baegteun")
+                                                .marginTop(0)
+                                                .color(.white)
+                                                .whiteSpace(.nowrap)
+                                        }
+                                        .custom("transform", "scale(0.9) translateZ(0px)")
+                                        .class([.Portfoilo.dynamicIslandName])
+
+                                        Div {
+                                            Img()
+                                                .srcSet("images/phone.down.fill.svg")
+                                                .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
+                                                .verticalAlign(.middle)
+                                                .custom("margin", "auto")
+                                        }
+                                        .background(.init("#FF3B30"))
+                                        .class([.Portfoilo.dynamicIslandIcon])
+
+                                        Div {
+                                            Img()
+                                                .srcSet("images/phone.fill.svg")
+                                                .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
+                                                .verticalAlign(.middle)
+                                                .custom("margin", "auto")
+                                        }
+                                        .background(.init("#34C759"))
+                                        .class([.Portfoilo.dynamicIslandIcon])
+                                    }
+                                    .class([.Portfoilo.dynamicIslandContent])
+                                }
+                                .onClick {
+                                    self.isCollapsed = !self.isCollapsed
+                                }
+                                .class([.Portfoilo.dynamicIsland])
+                            }
+                            .class([.Portfoilo.dynamicIslandHidden])
+                        }
+                        .class([.Portfoilo.dynamicIslandContainer])
                     }
                     .class([.Portfoilo.statusBar])
                     .zIndex(1)
                 }
                 .class([.Portfoilo.deviceScreen])
+
+                Div().class([.Portfoilo.iPhoneCamera])
 
                 Div().class([.Portfoilo.iPhoneButton])
 
@@ -40,5 +104,55 @@ final class PortfoiloViewController: ViewController {
             self.dateString = "\(hour):\(min)"
             return .undefined
         }), 1000)
+    }
+
+    func dynamicIslandContentInActive() -> Stylesheet {
+        Stylesheet {
+            CSSRule(Class.Portfoilo.dynamicIslandContent)
+                .opacity(0)
+                .pointerEvents(.none)
+                .display(.flex)
+                .custom("transform", "scale(0.9) translateZ(0px)")
+                .height(100.percent)
+        }
+    }
+
+    func dynamicIslandContentActive() -> Stylesheet {
+        Stylesheet {
+            CSSRule(Class.Portfoilo.dynamicIslandContent)
+                .opacity(1)
+                .pointerEvents(.none)
+                .display(.flex)
+                .custom("transform", "scale(0.9) translateZ(0px)")
+                .height(100.percent)
+        }
+    }
+
+    func dynamicIslandButtonInActive() -> Stylesheet {
+        Stylesheet {
+            CSSRule(Class.Portfoilo.dynamicIsland)
+                .margin(v: 0, h: .auto)
+                .outlineWidth(0)
+                .width(120.px)
+                .height(35.px)
+                .borderRadius(all: .length(22.px))
+                .backgroundColor(.black)
+                .transitionDuration(.seconds(0.3))
+                .transitionTimingFunction(.cubicBezier(0.4, 0, 0.2, 1))
+        }
+    }
+
+    func dynamicIslandButtonActive() -> Stylesheet {
+        Stylesheet {
+            CSSRule(Class.Portfoilo.dynamicIsland)
+                .margin(v: 0, h: .auto)
+                .outlineWidth(0)
+                .width(371.px)
+                .height(84.px)
+                .borderRadius(all: .length(42.px))
+                .backgroundColor(.black)
+                .transitionDuration(.seconds(0.3))
+                .transitionTimingFunction(.cubicBezier(0.4, 0, 0.2, 1))
+        }
     }
 }

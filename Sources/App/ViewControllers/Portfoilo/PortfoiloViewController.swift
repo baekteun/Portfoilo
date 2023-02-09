@@ -7,6 +7,8 @@ final class PortfoiloViewController: ViewController {
 
     @DOM override var body: DOM.Content {
         PortfoiloStyle()
+        DynamicIslandStyle()
+        IPhoneStyle()
         dynamicIslandContentActive().disabled(self.$isCollapsed.map { !$0 })
         dynamicIslandContentInActive().disabled(self.$isCollapsed)
         dynamicIslandButtonActive().disabled(self.$isCollapsed.map { !$0 })
@@ -15,102 +17,49 @@ final class PortfoiloViewController: ViewController {
         Div {
             Div {
                 Div {
+                    self.statusBar()
+
                     Div {
-                        P(self.$dateString)
-                            .color(.white)
-                            .fontSize(.large)
-                            .fontWeight(.init("500"))
-                            .textAlign(.right)
-                            .marginLeft(8.px)
+                        
+                    }
+                    .marginTop(75.95.px)
+                    .custom("margin", "0 auto")
+                    .display(.flex)
+                    .flex(grow: 1, shrink: 1, basis: 0.percent)
+
+                    Div {
+                        Div {
+                            Div()
+                                .width(8.px)
+                                .height(8.px)
+                                .borderRadius(all: 50.percent)
+                                .backgroundColor(.init(.init("#ffffff80")))
+                        }
+                        .display(.flex)
+                        .alignItems(.center)
+                        .marginTop(45.px)
+                        .marginBottom(30.px)
 
                         Div {
+                            Div().class([.Portfoilo.dockBlur])
+
                             Div {
                                 Div {
-                                    Div {
-                                        Div {
-                                            Img()
-                                                .src("https://avatars.githubusercontent.com/u/74440939?v=4")
-                                                .class([.Portfoilo.profileImage])
-                                        }
-                                        .class([.Portfoilo.dynamicIslandProfile])
-
-                                        Div {
-                                            P("Mobile")
-                                                .fontSize(0.875.rem)
-                                                .margin(all: 0)
-                                                .color(r: 107, g: 114, b: 128)
-
-                                            H2("baegteun")
-                                                .marginTop(0)
-                                                .color(.white)
-                                                .whiteSpace(.nowrap)
-                                        }
-                                        .class([.Portfoilo.dynamicIslandName])
-
-                                        Div {
-                                            Img()
-                                                .srcSet("images/phone.down.fill.svg")
-                                                .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
-                                                .verticalAlign(.middle)
-                                                .custom("margin", "auto")
-                                        }
-                                        .background(.init("#FF3B30"))
-                                        .class([.Portfoilo.dynamicIslandIcon])
-
-                                        Div {
-                                            Img()
-                                                .srcSet("images/phone.fill.svg")
-                                                .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
-                                                .verticalAlign(.middle)
-                                                .custom("margin", "auto")
-                                        }
-                                        .background(.init("#34C759"))
-                                        .class([.Portfoilo.dynamicIslandIcon])
+                                    ForEach(dockItems) { dock in
+                                        Img()
+                                            .srcSet(dock.imgPath)
                                     }
-                                    .class([.Portfoilo.dynamicIslandContent])
                                 }
-                                .onClick {
-                                    self.isCollapsed = !self.isCollapsed
-                                }
-                                .class([.Portfoilo.dynamicIsland])
-                            }
-                            .class([.Portfoilo.dynamicIslandHidden])
-                        }
-                        .class([.Portfoilo.dynamicIslandContainer])
-
-                        Div {
-                            Div {
-                                Img()
-                                    .srcSet("images/statusBar/cellularbars.svg")
-                                    .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
-                                    .width(28.px)
-                                    .height(24.px)
-
-                                Img()
-                                    .srcSet("images/statusBar/wifi.svg")
-                                    .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
-                                    .width(24.px)
-                                    .height(24.px)
-                                    .padding(v: 0, h: 8.px)
-
-                                Img()
-                                    .srcSet("images/statusBar/battery.75.svg")
-                                    .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
-                                    .width(32.px)
-                                    .height(32.px)
+                                .class([.Portfoilo.dockItem])
                             }
                             .display(.flex)
+                            .flexDirection(.column)
                             .alignItems(.center)
-                            .height(16.px)
-                            .transform(.scale(0.8, 0.8))
-                            .transformOrigin(.init("right center"))
+                            .cursor(.pointer)
                         }
-                        .marginRight(-5.75.px)
-                        .custom("width", "fit-content")
-                        .display(.flex)
+                        .class([.Portfoilo.dockContainer])
                     }
-                    .class([.Portfoilo.statusBar])
-                    .zIndex(1)
+                    .class([.Portfoilo.dockBar])
                 }
                 .class([.Portfoilo.deviceScreen])
 
@@ -172,6 +121,7 @@ final class PortfoiloViewController: ViewController {
                 .backgroundColor(.black)
                 .transitionDuration(.seconds(0.3))
                 .transitionTimingFunction(.cubicBezier(0.4, 0, 0.2, 1))
+                .cursor(.pointer)
         }
     }
 
@@ -186,6 +136,107 @@ final class PortfoiloViewController: ViewController {
                 .backgroundColor(.black)
                 .transitionDuration(.seconds(0.3))
                 .transitionTimingFunction(.cubicBezier(0.4, 0, 0.2, 1))
+                .cursor(.pointer)
         }
+    }
+
+    @DOM
+    func statusBar() -> DOM.Content {
+        Div {
+            P(self.$dateString)
+                .color(.white)
+                .fontSize(.large)
+                .fontWeight(.init("500"))
+                .textAlign(.right)
+                .marginLeft(8.px)
+
+            Div {
+                Div {
+                    Div {
+                        Div {
+                            Div {
+                                Img()
+                                    .src("https://avatars.githubusercontent.com/u/74440939?v=4")
+                                    .class([.Portfoilo.profileImage])
+                            }
+                            .class([.Portfoilo.dynamicIslandProfile])
+
+                            Div {
+                                P("Mobile")
+                                    .fontSize(0.875.rem)
+                                    .margin(all: 0)
+                                    .color(r: 107, g: 114, b: 128)
+
+                                H2("baegteun")
+                                    .marginTop(0)
+                                    .color(.white)
+                                    .whiteSpace(.nowrap)
+                            }
+                            .class([.Portfoilo.dynamicIslandName])
+
+                            Div {
+                                Img()
+                                    .srcSet("images/phone.down.fill.svg")
+                                    .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
+                                    .verticalAlign(.middle)
+                                    .custom("margin", "auto")
+                            }
+                            .background(.init("#FF3B30"))
+                            .class([.Portfoilo.dynamicIslandIcon])
+
+                            Div {
+                                Img()
+                                    .srcSet("images/phone.fill.svg")
+                                    .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
+                                    .verticalAlign(.middle)
+                                    .custom("margin", "auto")
+                            }
+                            .background(.init("#34C759"))
+                            .class([.Portfoilo.dynamicIslandIcon])
+                        }
+                        .class([.Portfoilo.dynamicIslandContent])
+                    }
+                    .onClick {
+                        self.isCollapsed = !self.isCollapsed
+                    }
+                    .class([.Portfoilo.dynamicIsland])
+                }
+                .class([.Portfoilo.dynamicIslandHidden])
+            }
+            .class([.Portfoilo.dynamicIslandContainer])
+
+            Div {
+                Div {
+                    Img()
+                        .srcSet("images/statusBar/cellularbars.svg")
+                        .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
+                        .width(28.px)
+                        .height(24.px)
+
+                    Img()
+                        .srcSet("images/statusBar/wifi.svg")
+                        .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
+                        .width(24.px)
+                        .height(24.px)
+                        .padding(v: 0, h: 8.px)
+
+                    Img()
+                        .srcSet("images/statusBar/battery.75.svg")
+                        .filter(.init("invert(99%) sepia(5%) saturate(21%) hue-rotate(205deg) brightness(103%) contrast(105%)"))
+                        .width(32.px)
+                        .height(32.px)
+                }
+                .display(.flex)
+                .alignItems(.center)
+                .height(16.px)
+                .transform(.scale(0.8, 0.8))
+                .transformOrigin(.init("right center"))
+            }
+            .marginRight(-5.75.px)
+            .custom("width", "fit-content")
+            .display(.flex)
+        }
+        .class([.Portfoilo.statusBar])
+        .zIndex(1)
     }
 }

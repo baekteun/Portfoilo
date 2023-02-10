@@ -9,6 +9,7 @@ final class PortfoiloViewController: ViewController {
         PortfoiloStyle()
         DynamicIslandStyle()
         IPhoneStyle()
+        DockStyle()
         dynamicIslandContentActive().disabled(self.$isCollapsed.map { !$0 })
         dynamicIslandContentInActive().disabled(self.$isCollapsed)
         dynamicIslandButtonActive().disabled(self.$isCollapsed.map { !$0 })

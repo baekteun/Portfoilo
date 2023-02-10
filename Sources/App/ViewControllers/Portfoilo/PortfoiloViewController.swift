@@ -4,6 +4,7 @@ final class PortfoiloViewController: ViewController {
     private var value: JSValue?
     @State var dateString = "00:00"
     @State var isCollapsed = false
+    @State var dynamicIslandDisplay = DynamicIslandDisplayStyle.default
 
     @DOM override var body: DOM.Content {
         PortfoiloStyle()
@@ -168,12 +169,12 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
                             .class([.Portfoilo.dynamicIslandProfile])
 
                             Div {
-                                P("Mobile")
+                                P(self.$dynamicIslandDisplay.map { $0.subName })
                                     .fontSize(0.875.rem)
                                     .margin(all: 0)
                                     .color(r: 107, g: 114, b: 128)
 
-                                H2("baegteun")
+                                H2(self.$dynamicIslandDisplay.map { $0.name })
                                     .marginTop(0)
                                     .color(.white)
                                     .whiteSpace(.nowrap)
@@ -201,12 +202,13 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
                             .class([.Portfoilo.dynamicIslandIcon])
                             .pointerEvents(.auto)
                             .onClick {
-                                JSObject.global.window.open.function!("https://github.com/baekteun")
+                                JSObject.global.window.open.function!(self.dynamicIslandDisplay.link)
                             }
                         }
                         .class([.Portfoilo.dynamicIslandContent])
                     }
                     .onClick {
+                        self.dynamicIslandDisplay = .default
                         self.isCollapsed = !self.isCollapsed
                     }
                     .class([.Portfoilo.dynamicIsland])
@@ -298,6 +300,10 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
                         Div()
                             .class([.Portfoilo.dockItemImage])
                             .backgroundImage(dock.imgPath)
+                            .onClick {
+                                self.dynamicIslandDisplay = dock.dynamicIslandDisplay
+                                self.isCollapsed = !self.isCollapsed
+                            }
                     }
                     .class([.Portfoilo.dockItem])
                 }

@@ -39,7 +39,7 @@ extension Project {
     ]
 }
 
-private let gui = Project(
+let gui = Project(
     name: "GUI",
     fullName: "GSM User Interface",
     links: [

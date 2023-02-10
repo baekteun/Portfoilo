@@ -17,26 +17,44 @@ final class PortfoiloViewController: ViewController {
 
         Div {
             Div {
-                Div {
-                    self.statusBar()
-
-                    self.appContainer()
-
-                    self.dockBar()
-                }
-                .class([.Portfoilo.deviceScreen])
-
-                Div().class([.Portfoilo.iPhoneCamera])
-
-                Div().class([.Portfoilo.iPhoneButton])
-
-                Div().class([.Portfoilo.iPhonePower])
+                self.introduceView()
             }
-            .class(.Portfoilo.iPhone14Pro)
+            .flexGrow(1)
+
+            Div {
+                Div {
+                    Div {
+                        Div {
+                            self.statusBar()
+
+                            self.appContainer()
+
+                            self.dockBar()
+                        }
+                        .class([.Portfoilo.deviceScreen])
+
+                        Div().class([.Portfoilo.iPhoneCamera])
+
+                        Div().class([.Portfoilo.iPhoneButton])
+
+                        Div().class([.Portfoilo.iPhonePower])
+                    }
+                    .class(.Portfoilo.iPhone14Pro)
+                }
+                .class([.Portfoilo.deviceFrame, .Portfoilo.phone, .Portfoilo.device])
+            }
+            .alignItems(.flexStart)
+            .width(403.px)
+            .position(.sticky)
+            .top(0)
+            .right(0)
+            .height(100.vh)
+            .zIndex(100)
+            .display(.flex)
         }
-        .class([.Portfoilo.deviceFrame, .Portfoilo.phone, .Portfoilo.device])
-        .float(.right)
-        .right(20.px)
+        .display(.flex)
+        .flexDirection(.row)
+        .margin(v: 10.px, h: 10.percent)
     }
 
     override func buildUI() {
@@ -104,6 +122,31 @@ final class PortfoiloViewController: ViewController {
     }
 
     @DOM
+    func introduceView() -> DOM.Content {
+        Header {
+            H1("수상할 정도로 다양한 경험을 지닌 📚 주니어 iOS 개발자 최형우입니다!")
+                .color(.white)
+
+            P("""
+iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 일정 관리 서비스 심통, 전국 기숙사 관리 시스템 서비스 DMS, 교내 동아리 관리 시스템 GCMS 등의 여러 프로젝트에서 iOS 개발 팀장을 맡고 실제로 출시 및 유지보수를 해보며 실무에 빠르게 적응할 수 있는 개발자가 되고자 하였습니다.
+
+소프트웨어 개발은 개발을 마치는 것이 아니라 효율적으로 유지하고 보수하는 것이 중요하다고 생각합니다. 그렇기에 팀 내에서 Swift 스타일 가이드 작성과 문서화 업무의 담당, 클린코드 준수, 인프라 구축 등에 주도적으로 기여하였습니다.
+
+10년 뒤에도 함께 일하고 싶은 동료 개발자로 성장하는 것이 목표입니다.
+
+""")
+            .color(.init(r: 153, g: 153, b: 153))
+            .fontSize(.length(18.px))
+            .lineHeight(1.45)
+            .marginRight(20.px)
+        }
+        .display(.flex)
+        .flexDirection(.column)
+        .marginTop(20.px)
+        .marginRight(10.percent)
+    }
+
+    @DOM
     func statusBar() -> DOM.Content {
         Div {
             P(self.$dateString)
@@ -111,7 +154,7 @@ final class PortfoiloViewController: ViewController {
                 .fontSize(.large)
                 .fontWeight(.init("500"))
                 .textAlign(.right)
-                .marginLeft(8.px)
+                .marginLeft(20.px)
 
             Div {
                 Div {
@@ -156,6 +199,10 @@ final class PortfoiloViewController: ViewController {
                             }
                             .background(.init("#34C759"))
                             .class([.Portfoilo.dynamicIslandIcon])
+                            .pointerEvents(.auto)
+                            .onClick {
+                                JSObject.global.window.open.function!("https://github.com/baekteun")
+                            }
                         }
                         .class([.Portfoilo.dynamicIslandContent])
                     }

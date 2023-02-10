@@ -42,20 +42,14 @@ final class PortfoiloViewController: ViewController {
 
                         Div {
                             Div().class([.Portfoilo.dockBlur])
-
-                            Div {
+                            
+                            ForEach(dockItems) { dock in
                                 Div {
-                                    ForEach(dockItems) { dock in
-                                        Img()
-                                            .srcSet(dock.imgPath)
-                                    }
+                                    Img()
+                                        .srcSet(dock.imgPath)
                                 }
                                 .class([.Portfoilo.dockItem])
                             }
-                            .display(.flex)
-                            .flexDirection(.column)
-                            .alignItems(.center)
-                            .cursor(.pointer)
                         }
                         .class([.Portfoilo.dockContainer])
                     }

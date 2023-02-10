@@ -21,7 +21,8 @@ final class IPhoneStyle: Stylesheet {
             .zIndex(0)
             .backgroundColor(r: 6, g: 6, b: 6, important: true)
             .backgroundRepeat(.noRepeat)
-            .backgroundImage("https://user-images.githubusercontent.com/74440939/217517235-98eca9ea-9092-4e03-b54f-9b3f0771a780.jpeg")
+            .backgroundImage("https://user-images.githubusercontent.com/74440939/217786479-09145fc8-a787-4542-a83b-6b9ba71172de.png")
+            .backgroundSize(all: .cover)
 
         CSSRule(Class.Portfoilo.iPhone14Pro.inside(Class.Portfoilo.deviceScreen))
             .borderRadius(all: 49.px)
@@ -48,7 +49,7 @@ final class IPhoneStyle: Stylesheet {
 
         CSSRule(Class.Portfoilo.iPhone14Pro)
             .height(868.px)
-            .width(428.px)
+            .width(405.px)
 
         CSSRule(Class.Portfoilo.iPhoneCamera.before)
             .pointerEvents(.none)

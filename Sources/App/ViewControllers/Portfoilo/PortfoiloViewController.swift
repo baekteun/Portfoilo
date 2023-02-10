@@ -21,40 +21,28 @@ final class PortfoiloViewController: ViewController {
                     self.statusBar()
 
                     Div {
-                        
-                    }
-                    .marginTop(75.95.px)
-                    .custom("margin", "0 auto")
-                    .display(.flex)
-                    .flex(grow: 1, shrink: 1, basis: 0.percent)
-
-                    Div {
                         Div {
-                            Div()
-                                .width(8.px)
-                                .height(8.px)
-                                .borderRadius(all: 50.percent)
-                                .backgroundColor(.init(.init("#ffffff80")))
-                        }
-                        .display(.flex)
-                        .alignItems(.center)
-                        .marginTop(45.px)
-                        .marginBottom(30.px)
-
-                        Div {
-                            Div().class([.Portfoilo.dockBlur])
-                            
-                            ForEach(dockItems) { dock in
+                            ForEach(appItems) { app in
                                 Div {
-                                    Img()
-                                        .srcSet(dock.imgPath)
+                                    Div {
+                                        Div()
+                                            .class([.Portfoilo.appIconImage])
+                                            .backgroundImage(app.imgPath)
+                                    }
+                                    .class([.Portfoilo.appIcon])
+                                    
+                                    Span(app.name)
+                                        .marginTop(6.848.px)
+                                        .fontSize(11.128.px)
                                 }
-                                .class([.Portfoilo.dockItem])
+                                .class([.Portfoilo.appItemContainer])
                             }
                         }
-                        .class([.Portfoilo.dockContainer])
+                        .class([.Portfoilo.appContainer])
                     }
-                    .class([.Portfoilo.dockBar])
+                    .class([.Portfoilo.appWrapper])
+
+                    self.dockBar()
                 }
                 .class([.Portfoilo.deviceScreen])
 
@@ -233,5 +221,37 @@ final class PortfoiloViewController: ViewController {
         }
         .class([.Portfoilo.statusBar])
         .zIndex(1)
+    }
+
+    @DOM
+    func dockBar() -> DOM.Content {
+        Div {
+            Div {
+                Div()
+                    .width(8.px)
+                    .height(8.px)
+                    .borderRadius(all: 50.percent)
+                    .backgroundColor(.init(.init("#ffffff80")))
+            }
+            .display(.flex)
+            .alignItems(.center)
+            .marginTop(45.px)
+            .marginBottom(30.px)
+
+            Div {
+                Div().class([.Portfoilo.dockBlur])
+                
+                ForEach(dockItems) { dock in
+                    Div {
+                        Div()
+                            .class([.Portfoilo.dockItemImage])
+                            .backgroundImage(dock.imgPath)
+                    }
+                    .class([.Portfoilo.dockItem])
+                }
+            }
+            .class([.Portfoilo.dockContainer])
+        }
+        .class([.Portfoilo.dockBar])
     }
 }

@@ -55,12 +55,13 @@ final class DockStyle: Stylesheet {
             .alignItems(.center)
             .overflow(.hidden)
 
-        CSSRule(Class.Portfoilo.dockItem.inside(Img.pointer))
+        CSSRule(Class.Portfoilo.dockItemImage)
             .width(66.px)
             .height(66.px)
             .borderRadius(all: .length(16.px))
+            .backgroundSize(all: .cover)
 
-        CSSRule(Class.Portfoilo.dockItem.after)
+        CSSRule(Class.Portfoilo.dockItemImage.after)
             .property(.content, "")
             .background(color: .init(r: 0, g: 0, b: 0, a: 0.2))
             .position(.absolute)
@@ -71,7 +72,7 @@ final class DockStyle: Stylesheet {
             .zIndex(1)
             .opacity(0)
 
-        CSSRule(Class.Portfoilo.dockItem.hover.after)
+        CSSRule(Class.Portfoilo.dockItemImage.hover.after)
             .opacity(1)
     }
 }
@@ -81,4 +82,5 @@ extension Class.Portfoilo {
     static let dockContainer: Class = "DockContainer"
     static let dockBlur: Class = "DockBlur"
     static let dockItem: Class = "DockItem"
+    static let dockItemImage: Class = "DockItemImage"
 }

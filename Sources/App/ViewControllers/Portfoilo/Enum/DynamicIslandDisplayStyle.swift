@@ -9,7 +9,7 @@ enum DynamicIslandDisplayStyle {
 extension DynamicIslandDisplayStyle {
     var link: String {
         switch self {
-        case .`default`:
+        case .`default`, .github:
             return "https://github.com/baekteun"
             
         case .telephone:
@@ -20,9 +20,6 @@ extension DynamicIslandDisplayStyle {
 
         case .appStore:
             return "https://apps.apple.com/kr/developer/hyeongwoo-choi/id1614205706"
-
-        case .github:
-            return "https://github.com/baekteun"
         }
     }
 
@@ -38,7 +35,7 @@ extension DynamicIslandDisplayStyle {
 
     var subName: String {
         switch self {
-        case .`default`:
+        case .`default`, .github:
             return "Github"
 
         case .telephone:
@@ -49,9 +46,6 @@ extension DynamicIslandDisplayStyle {
 
         case .appStore:
             return "AppStore"
-
-        case .github:
-            return "Github"
         }
     }
 }

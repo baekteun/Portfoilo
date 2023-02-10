@@ -17,7 +17,6 @@ public class App: WebApp {
         }
         Routes {
             Page("**") { NotFoundViewController() }
-            Page("project") { ProjectListViewController() }
             Page("") { PortfoiloViewController() }
         }
     }

@@ -5,6 +5,9 @@ final class PortfoiloStyle: Stylesheet {
 
     @Rules
     override var rules: Stylesheet.RuleItems {
+        CSSRule(Html.pointer)
+            .scrollBehavior(.smooth)
+
         CSSRule(Body.pointer)
             .margin(all: 5.px)
             .padding(all: 5.px)
@@ -76,6 +79,12 @@ final class PortfoiloStyle: Stylesheet {
             .flexDirection(.row)
             .alignItems(.center)
             .color(.white)
+
+        CSSRule(Class.Portfoilo.textDivider)
+            .width(1.px)
+            .height(10.px)
+            .margin(v: 0, h: 5.px)
+            .backgroundColor(.gray)
     }
 }
 
@@ -89,5 +98,6 @@ extension Class {
         static let projectHeader: Class = "ProjectHeader"
         static let projectBanner: Class = "ProjectBanner"
         static let projectTitle: Class = "ProjectTitle"
+        static let textDivider: Class = "TextDivider"
     }
 }

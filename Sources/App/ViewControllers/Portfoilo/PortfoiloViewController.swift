@@ -20,27 +20,7 @@ final class PortfoiloViewController: ViewController {
                 Div {
                     self.statusBar()
 
-                    Div {
-                        Div {
-                            ForEach(appItems) { app in
-                                Div {
-                                    Div {
-                                        Div()
-                                            .class([.Portfoilo.appIconImage])
-                                            .backgroundImage(app.imgPath)
-                                    }
-                                    .class([.Portfoilo.appIcon])
-                                    
-                                    Span(app.name)
-                                        .marginTop(6.848.px)
-                                        .fontSize(11.128.px)
-                                }
-                                .class([.Portfoilo.appItemContainer])
-                            }
-                        }
-                        .class([.Portfoilo.appContainer])
-                    }
-                    .class([.Portfoilo.appWrapper])
+                    self.appContainer()
 
                     self.dockBar()
                 }
@@ -221,6 +201,31 @@ final class PortfoiloViewController: ViewController {
         }
         .class([.Portfoilo.statusBar])
         .zIndex(1)
+    }
+
+    @DOM
+    func appContainer() -> DOM.Content {
+        Div {
+            Div {
+                ForEach(appItems) { app in
+                    Div {
+                        Div {
+                            Div()
+                                .class([.Portfoilo.appIconImage])
+                                .backgroundImage(app.imgPath)
+                        }
+                        .class([.Portfoilo.appIcon])
+                        
+                        Span(app.name)
+                            .marginTop(6.848.px)
+                            .fontSize(11.128.px)
+                    }
+                    .class([.Portfoilo.appItemContainer])
+                }
+            }
+            .class([.Portfoilo.appContainer])
+        }
+        .class([.Portfoilo.appWrapper])
     }
 
     @DOM

@@ -70,58 +70,6 @@ final class PortfoiloViewController: ViewController {
         }), 1000)
     }
 
-    func dynamicIslandContentInActive() -> Stylesheet {
-        Stylesheet {
-            CSSRule(Class.Portfoilo.dynamicIslandContent)
-                .opacity(0)
-                .pointerEvents(.none)
-                .display(.flex)
-                .custom("transform", "scale(0.9) translateZ(0px)")
-                .height(100.percent)
-        }
-    }
-
-    func dynamicIslandContentActive() -> Stylesheet {
-        Stylesheet {
-            CSSRule(Class.Portfoilo.dynamicIslandContent)
-                .opacity(1)
-                .pointerEvents(.none)
-                .display(.flex)
-                .custom("transform", "scale(0.9) translateZ(0px)")
-                .height(100.percent)
-        }
-    }
-
-    func dynamicIslandButtonInActive() -> Stylesheet {
-        Stylesheet {
-            CSSRule(Class.Portfoilo.dynamicIsland)
-                .margin(v: 0, h: .auto)
-                .outlineWidth(0)
-                .width(120.px)
-                .height(35.px)
-                .borderRadius(all: .length(22.px))
-                .backgroundColor(.black)
-                .transitionDuration(.seconds(0.3))
-                .transitionTimingFunction(.cubicBezier(0.4, 0, 0.2, 1))
-                .cursor(.pointer)
-        }
-    }
-
-    func dynamicIslandButtonActive() -> Stylesheet {
-        Stylesheet {
-            CSSRule(Class.Portfoilo.dynamicIsland)
-                .margin(v: 0, h: .auto)
-                .outlineWidth(0)
-                .width(371.px)
-                .height(84.px)
-                .borderRadius(all: .length(42.px))
-                .backgroundColor(.black)
-                .transitionDuration(.seconds(0.3))
-                .transitionTimingFunction(.cubicBezier(0.4, 0, 0.2, 1))
-                .cursor(.pointer)
-        }
-    }
-
     @DOM
     func introduceView() -> DOM.Content {
         Header {
@@ -311,5 +259,60 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
             .class([.Portfoilo.dockContainer])
         }
         .class([.Portfoilo.dockBar])
+    }
+}
+
+// MARK: - StyleSheet
+extension PortfoiloViewController {
+    func dynamicIslandContentInActive() -> Stylesheet {
+        Stylesheet {
+            CSSRule(Class.Portfoilo.dynamicIslandContent)
+                .opacity(0)
+                .pointerEvents(.none)
+                .display(.flex)
+                .custom("transform", "scale(0.9) translateZ(0px)")
+                .height(100.percent)
+        }
+    }
+
+    func dynamicIslandContentActive() -> Stylesheet {
+        Stylesheet {
+            CSSRule(Class.Portfoilo.dynamicIslandContent)
+                .opacity(1)
+                .pointerEvents(.none)
+                .display(.flex)
+                .custom("transform", "scale(0.9) translateZ(0px)")
+                .height(100.percent)
+        }
+    }
+
+    func dynamicIslandButtonInActive() -> Stylesheet {
+        Stylesheet {
+            CSSRule(Class.Portfoilo.dynamicIsland)
+                .margin(v: 0, h: .auto)
+                .outlineWidth(0)
+                .width(120.px)
+                .height(35.px)
+                .borderRadius(all: .length(22.px))
+                .backgroundColor(.black)
+                .transitionDuration(.seconds(0.3))
+                .transitionTimingFunction(.cubicBezier(0.4, 0, 0.2, 1))
+                .cursor(.pointer)
+        }
+    }
+
+    func dynamicIslandButtonActive() -> Stylesheet {
+        Stylesheet {
+            CSSRule(Class.Portfoilo.dynamicIsland)
+                .margin(v: 0, h: .auto)
+                .outlineWidth(0)
+                .width(371.px)
+                .height(84.px)
+                .borderRadius(all: .length(42.px))
+                .backgroundColor(.black)
+                .transitionDuration(.seconds(0.3))
+                .transitionTimingFunction(.cubicBezier(0.4, 0, 0.2, 1))
+                .cursor(.pointer)
+        }
     }
 }

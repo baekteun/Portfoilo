@@ -58,6 +58,24 @@ final class PortfoiloStyle: Stylesheet {
 
         CSSRule(Class.Portfoilo.appIconImage.hover.after)
             .opacity(1)
+
+        CSSRule(Class.Portfoilo.projectHeader)
+            .display(.flex)
+            .flexDirection(.row)
+            .justifyContent(.flexStart)
+            .alignItems(.center)
+
+        CSSRule(Class.Portfoilo.projectHeader.inside(Class.Portfoilo.projectBanner))
+            .height(150.px)
+            .width(150.px)
+            .borderRadius(all: .length(16.px))
+            .overflow(.hidden)
+
+        CSSRule(Class.Portfoilo.projectTitle)
+            .display(.flex)
+            .flexDirection(.row)
+            .alignItems(.center)
+            .color(.white)
     }
 }
 
@@ -68,5 +86,8 @@ extension Class {
         static let appItemContainer: Class = "AppItemContainer"
         static let appIcon: Class = "AppIcon"
         static let appIconImage: Class = "AppIconImage"
+        static let projectHeader: Class = "ProjectHeader"
+        static let projectBanner: Class = "ProjectBanner"
+        static let projectTitle: Class = "ProjectTitle"
     }
 }

@@ -45,8 +45,8 @@ let gui = Project(
     links: [
         RelatedLink(name: "Github", url: "https://github.com/GSM-MSG/GUI-iOS")
     ],
-    bannerURL: "https://user-images.githubusercontent.com/74440939/217202114-eb99351f-f1d5-4a06-8904-fb0596763856.svg",
-    role: "iOS Developer\niOS Leader",
+    bannerURL: "https://user-images.githubusercontent.com/74440939/218129559-3cefe42f-1a00-49c9-b338-3e6bd4abd18b.svg",
+    role: "iOS Developer, iOS Leader",
     period: "2023.01 ~",
     team: RelatedLink(name: "MSG.Team", url: "https://github.com/GSM-MSG"),
     projectInfo: ProjectInfo(
@@ -73,7 +73,7 @@ private let simtong = Project(
     name: "심통 - Simtong",
     links: [],
     bannerURL: "https://user-images.githubusercontent.com/74440939/217274736-4df86192-22bd-4244-b34c-d2a242aa18e1.png",
-    role: "iOS Developer\niOS Leader",
+    role: "iOS Developer, iOS Leader",
     period: "2022.06 ~ ",
     team: .init(name: "COMIT Team", url: "https://github.com/Team-ComIT"),
     projectInfo: ProjectInfo(
@@ -105,7 +105,7 @@ private let dms = Project(
         RelatedLink(name: "Github", url: "https://github.com/team-aliens/DMS-iOS")
     ],
     bannerURL: "https://user-images.githubusercontent.com/74440939/217276039-04895d45-908a-45ac-be68-a0abe58c2f10.png",
-    role: "iOS Developer\niOS Leader",
+    role: "iOS Developer, iOS Leader",
     period: "2022.08. ~ ",
     team: .init(name: "Team Aliens", url: "https://github.com/team-aliens"),
     projectInfo: ProjectInfo(

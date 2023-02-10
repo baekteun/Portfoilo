@@ -19,8 +19,13 @@ final class PortfoiloViewController: ViewController {
         Div {
             Div {
                 self.introduceView()
+
+                ForEach(Project.liveValue) { project in
+                    self.projectView(project: project)
+                }
             }
             .flexGrow(1)
+            .marginRight(5.percent)
 
             Div {
                 Div {
@@ -52,10 +57,12 @@ final class PortfoiloViewController: ViewController {
             .height(100.vh)
             .zIndex(100)
             .display(.flex)
+            .marginTop(5.percent)
+            .marginRight(10.percent)
         }
         .display(.flex)
         .flexDirection(.row)
-        .margin(v: 10.px, h: 10.percent)
+        .margin(v: 10.px, h: 5.percent)
     }
 
     override func buildUI() {
@@ -92,7 +99,6 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
         .display(.flex)
         .flexDirection(.column)
         .marginTop(20.px)
-        .marginRight(10.percent)
     }
 
     @DOM
@@ -259,6 +265,52 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
             .class([.Portfoilo.dockContainer])
         }
         .class([.Portfoilo.dockBar])
+    }
+
+    @DOM
+    func projectView(project: Project) -> DOM.Content {
+        Hr()
+            .margin(v: 5.percent, h: 0)
+
+        Div {
+            Div {
+                Img()
+                    .src(project.bannerURL)
+                    .class([.Portfoilo.projectBanner])
+
+                Div {
+                    H1(project.name)
+                        .color(.white)
+
+                    if let fullName = project.fullName {
+                        P("\(fullName)")
+                            .color(.gray)
+                    }
+
+                    Div {
+                        ForEach(project.links) { index, link in
+                            A(link.name)
+                                .color(.gray)
+                                .href(link.url)
+                                .target(.blank)
+                            
+                            if index != project.links.count - 1 {
+                                Div()
+                                    .class(.ProjectList.textDivider)
+                            }
+                        }
+                    }
+                    .class([.Portfoilo.projectTitle])
+                }
+                .align(.left)
+                .lineHeight(.length(5.px))
+                .paddingLeft(30.px)
+            }
+            .class([.Portfoilo.projectHeader])
+            .marginBottom(30.px)
+
+            ProjectInfoView(project: project)
+        }
     }
 }
 

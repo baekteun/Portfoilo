@@ -85,7 +85,7 @@ final class ProjectListViewController: ViewController {
                 }
                 .flexGrow(1)
 
-                ProjectInfoView(projectInfo: project.projectInfo)
+                ProjectInfoView(project: project)
                     .flexGrow(9)
                     .paddingLeft(50.px)
             }

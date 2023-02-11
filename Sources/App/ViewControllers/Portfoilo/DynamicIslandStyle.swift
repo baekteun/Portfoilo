@@ -29,7 +29,6 @@ final class DynamicIslandStyle: Stylesheet {
             .custom("aspect-ratio", "1/1")
             .height(75.percent)
             .textAlign(.center)
-            
 
         CSSRule(Class.Portfoilo.dynamicIslandName)
             .paddingLeft(0.5.rem)

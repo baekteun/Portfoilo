@@ -1,8 +1,6 @@
 import Web
 
 final class PortfoiloStyle: Stylesheet {
-    required init() { super.init() }
-
     @Rules
     override var rules: Stylesheet.RuleItems {
         CSSRule(Html.pointer)

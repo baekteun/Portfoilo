@@ -1,6 +1,20 @@
 import Web
 
 final class IPhoneStyle: Stylesheet {
+    @State var phoneAreaHeight: ValueWithUnit<Int>
+
+    init(phoneAreaHeight: State<ValueWithUnit<Int>>) {
+        self.phoneAreaHeight = phoneAreaHeight.wrappedValue
+        super.init()
+        phoneAreaHeight.listen {
+            self.phoneAreaHeight = $0
+        }
+    }
+
+    required init() {
+        fatalError("init() has not been implemented")
+    }
+
     @Rules
     override var rules: Stylesheet.RuleItems {
         CSSRule(Class.Portfoilo.device)
@@ -13,6 +27,37 @@ final class IPhoneStyle: Stylesheet {
             .transition([.all], duration: .seconds(0.2), timingFunction: .ease)
             .animationName("move")
             .animationDuration(1.s)
+
+        CSSRule(Class.Portfoilo.phoneContainer)
+            .alignItems(.flexStart)
+            .right(0)
+            .display(.flex)
+
+        MediaRule([.screen.minWidth(1000.px)]) {
+            CSSRule(Class.Portfoilo.phoneContainer)
+                .width(403.px)
+                .position(.sticky)
+                .height(100.vh)
+                .zIndex(100)
+                .top(0)
+                .marginRight(10.percent)
+        }
+
+        MediaRule(.screen.maxWidth(1000.px)) {
+            CSSRule(Class.Portfoilo.phoneContainer)
+                .custom("padding-top", "unset")
+                .width(100.percent)
+                .height(self.$phoneAreaHeight)
+                .position(.fixed)
+                .custom("top", "unset")
+                .left(0)
+                .bottom(0)
+                .justifyContent(.center)
+                .pointerEvents(.none)
+                .transitionProperty(.init("transform"))
+                .transitionTimingFunction(.ease)
+                .transitionDuration(.seconds(0.12))
+        }
 
         CSSRule(Class.Portfoilo.deviceScreen)
             .display(.flex)
@@ -148,6 +193,7 @@ final class IPhoneStyle: Stylesheet {
 
 extension Class.Portfoilo {
     static let phone: Class = "Phone"
+    static let phoneContainer: Class = "PhoneContainer"
     static let device: Class = "Device"
     static let deviceScreen: Class = "DeviceScreen"
     static let deviceFrame: Class = "DeviceFrame"

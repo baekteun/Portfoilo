@@ -5,11 +5,13 @@ final class PortfoiloViewController: ViewController {
     @State var dateString = "00:00"
     @State var isCollapsed = false
     @State var dynamicIslandDisplay = DynamicIslandDisplayStyle.default
+    @State var phoneAreaHeight = 150.px
+    @State var isFocusedPhone = false
 
     @DOM override var body: DOM.Content {
         PortfoiloStyle()
         DynamicIslandStyle()
-        IPhoneStyle()
+        IPhoneStyle(phoneAreaHeight: $phoneAreaHeight)
         DockStyle()
         dynamicIslandContentActive().disabled(self.$isCollapsed.map { !$0 })
         dynamicIslandContentInActive().disabled(self.$isCollapsed)
@@ -49,15 +51,7 @@ final class PortfoiloViewController: ViewController {
                 }
                 .class([.Portfoilo.deviceFrame, .Portfoilo.phone, .Portfoilo.device])
             }
-            .alignItems(.flexStart)
-            .width(403.px)
-            .position(.sticky)
-            .right(0)
-            .height(100.vh)
-            .zIndex(100)
-            .display(.flex)
-            .top(3.5.percent)
-            .marginRight(10.percent)
+            .class([.Portfoilo.phoneContainer])
         }
         .display(.flex)
         .flexDirection(.row)
@@ -74,6 +68,7 @@ final class PortfoiloViewController: ViewController {
             self.dateString = "\(hour):\(min)"
             return .undefined
         }), 1000)
+        
     }
 
     @DOM

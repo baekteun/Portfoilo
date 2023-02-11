@@ -52,12 +52,11 @@ final class PortfoiloViewController: ViewController {
             .alignItems(.flexStart)
             .width(403.px)
             .position(.sticky)
-            .top(0)
             .right(0)
             .height(100.vh)
             .zIndex(100)
             .display(.flex)
-            .marginTop(5.percent)
+            .top(3.5.percent)
             .marginRight(10.percent)
         }
         .display(.flex)

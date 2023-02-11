@@ -23,6 +23,20 @@ final class DynamicIslandStyle: Stylesheet {
             .display(.grid)
             .zIndex(10)
 
+        CSSRule(Class.Portfoilo.dynamicIsland)
+            .margin(v: 0, h: .auto)
+            .outlineWidth(0)
+            .backgroundColor(.black)
+            .transitionDuration(.seconds(0.3))
+            .transitionTimingFunction(.cubicBezier(0.4, 0, 0.2, 1))
+            .cursor(.pointer)
+
+        CSSRule(Class.Portfoilo.dynamicIslandContent)
+            .pointerEvents(.none)
+            .display(.flex)
+            .custom("transform", "scale(0.9) translateZ(0px)")
+            .height(100.percent)
+
         CSSRule(Class.Portfoilo.dynamicIslandProfile)
             .position(.relative)
             .custom("margin", "auto")

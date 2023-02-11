@@ -51,7 +51,8 @@ final class PortfoiloViewController: ViewController {
         DynamicIslandStyle()
         IPhoneStyle()
         DockStyle()
-        dynamicIslandToggleStyleSheet()
+        dynamicIslandActive().disabled($isCollapsed.map { !$0 })
+        dynamicIslandInActive().disabled($isCollapsed)
         phoneFocusToggleStyleSheet()
     }
 
@@ -313,18 +314,7 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
 
 // MARK: - StyleSheet
 extension PortfoiloViewController {
-    @DOM
-    func dynamicIslandToggleStyleSheet() -> DOM.Content {
-        Stylesheet {
-            CSSRule(Class.Portfoilo.dynamicIsland)
-                .margin(v: 0, h: .auto)
-                .outlineWidth(0)
-                .backgroundColor(.black)
-                .transitionDuration(.seconds(0.3))
-                .transitionTimingFunction(.cubicBezier(0.4, 0, 0.2, 1))
-                .cursor(.pointer)
-        }
-
+    func dynamicIslandInActive() -> Stylesheet {
         Stylesheet {
             CSSRule(Class.Portfoilo.dynamicIsland)
                 .width(120.px)
@@ -333,9 +323,13 @@ extension PortfoiloViewController {
 
             CSSRule(Class.Portfoilo.dynamicIsland.hover)
                 .transform(.scale(1.1, 1.1))
-        }
-        .disabled(self.$isCollapsed.map { !$0 })
 
+            CSSRule(Class.Portfoilo.dynamicIslandContent)
+                .opacity(0)
+        }
+    }
+
+    func dynamicIslandActive() -> Stylesheet {
         Stylesheet {
             CSSRule(Class.Portfoilo.dynamicIsland)
                 .width(371.px)
@@ -344,28 +338,10 @@ extension PortfoiloViewController {
 
             CSSRule(Class.Portfoilo.dynamicIsland.hover)
                 .transform(.scale(1.0, 1.0))
-        }
-        .disabled(self.$isCollapsed)
 
-        Stylesheet {
-            CSSRule(Class.Portfoilo.dynamicIslandContent)
-                .pointerEvents(.none)
-                .display(.flex)
-                .custom("transform", "scale(0.9) translateZ(0px)")
-                .height(100.percent)
-        }
-
-        Stylesheet {
-            CSSRule(Class.Portfoilo.dynamicIslandContent)
-                .opacity(0)
-        }
-        .disabled(self.$isCollapsed.map { !$0 })
-
-        Stylesheet {
             CSSRule(Class.Portfoilo.dynamicIslandContent)
                 .opacity(1)
         }
-        .disabled(self.$isCollapsed)
     }
 
     @DOM

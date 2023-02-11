@@ -8,13 +8,6 @@ final class PortfoiloViewController: ViewController {
     @State var isFocusedPhone = false
 
     @DOM override var body: DOM.Content {
-        PortfoiloStyle()
-        DynamicIslandStyle()
-        IPhoneStyle()
-        DockStyle()
-        dynamicIslandToggleStyleSheet()
-        phoneStyleSheet()
-
         Div {
             Div {
                 self.introduceView()
@@ -53,6 +46,13 @@ final class PortfoiloViewController: ViewController {
             .class([.Portfoilo.phoneContainer])
         }
         .class([.Portfoilo.rootContainer])
+
+        PortfoiloStyle()
+        DynamicIslandStyle()
+        IPhoneStyle()
+        DockStyle()
+        dynamicIslandToggleStyleSheet()
+        phoneStyleSheet()
     }
 
     override func buildUI() {
@@ -65,7 +65,6 @@ final class PortfoiloViewController: ViewController {
             self.dateString = "\(hour):\(min)"
             return .undefined
         }), 1000)
-        
     }
 
     @DOM
@@ -153,9 +152,9 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
                         .class([.Portfoilo.dynamicIslandContent])
                     }
                     .onClick {
-                        $1.stopPropagation()
                         self.dynamicIslandDisplay = .default
                         self.isCollapsed = !self.isCollapsed
+                        $1.stopPropagation()
                     }
                     .class([.Portfoilo.dynamicIsland])
                 }
@@ -331,6 +330,9 @@ extension PortfoiloViewController {
                 .width(120.px)
                 .height(35.px)
                 .borderRadius(all: .length(22.px))
+
+            CSSRule(Class.Portfoilo.dynamicIsland.hover)
+                .transform(.scale(1.1, 1.1))
         }
         .disabled(self.$isCollapsed.map { !$0 })
 
@@ -339,6 +341,9 @@ extension PortfoiloViewController {
                 .width(371.px)
                 .height(84.px)
                 .borderRadius(all: .length(42.px))
+
+            CSSRule(Class.Portfoilo.dynamicIsland.hover)
+                .transform(.scale(1.0, 1.0))
         }
         .disabled(self.$isCollapsed)
 

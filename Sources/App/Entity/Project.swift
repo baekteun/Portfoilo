@@ -155,7 +155,7 @@ private let todayWhat = Project(
             "Watch Connectivity를 사용한 iOS와 watchOS의 통신",
             "Swift Package Manager를 사용한 모듈화",
             "멀티 플랫폼 지원 경험 (iOS, macOS, watchOS)",
-            "XCConfig를 사용하여 Github에서 API Key를 숨기기"
+            "XCConfig를 사용하여 Github에서 API Key를 숨긴 경험"
         ],
         stack: [
             "SwiftUI",

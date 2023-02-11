@@ -37,6 +37,7 @@ final class IPhoneStyle: Stylesheet {
                 .top(0)
                 .marginRight(10.percent)
                 .transition([.init("height")], duration: .seconds(0.3), timingFunction: .ease)
+                .top(3.5.percent)
         }
 
         MediaRule(.screen.maxWidth(1000.px)) {

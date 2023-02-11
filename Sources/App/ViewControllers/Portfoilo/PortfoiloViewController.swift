@@ -349,21 +349,21 @@ extension PortfoiloViewController {
 
         Stylesheet {
             CSSRule(Class.Portfoilo.dynamicIslandContent)
-                .opacity(0)
                 .pointerEvents(.none)
                 .display(.flex)
                 .custom("transform", "scale(0.9) translateZ(0px)")
                 .height(100.percent)
+        }
+
+        Stylesheet {
+            CSSRule(Class.Portfoilo.dynamicIslandContent)
+                .opacity(0)
         }
         .disabled(self.$isCollapsed.map { !$0 })
 
         Stylesheet {
             CSSRule(Class.Portfoilo.dynamicIslandContent)
                 .opacity(1)
-                .pointerEvents(.none)
-                .display(.flex)
-                .custom("transform", "scale(0.9) translateZ(0px)")
-                .height(100.percent)
         }
         .disabled(self.$isCollapsed)
     }

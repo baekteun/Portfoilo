@@ -5,18 +5,15 @@ final class PortfoiloViewController: ViewController {
     @State var dateString = "00:00"
     @State var isCollapsed = false
     @State var dynamicIslandDisplay = DynamicIslandDisplayStyle.default
-    @State var phoneAreaHeight = 150.px
     @State var isFocusedPhone = false
 
     @DOM override var body: DOM.Content {
         PortfoiloStyle()
         DynamicIslandStyle()
-        IPhoneStyle(phoneAreaHeight: $phoneAreaHeight)
+        IPhoneStyle()
         DockStyle()
-        dynamicIslandContentActive().disabled(self.$isCollapsed.map { !$0 })
-        dynamicIslandContentInActive().disabled(self.$isCollapsed)
-        dynamicIslandButtonActive().disabled(self.$isCollapsed.map { !$0 })
-        dynamicIslandButtonInActive().disabled(self.$isCollapsed)
+        dynamicIslandToggleStyleSheet()
+        phoneStyleSheet()
 
         Div {
             Div {
@@ -26,8 +23,7 @@ final class PortfoiloViewController: ViewController {
                     self.projectView(project: project)
                 }
             }
-            .flexGrow(1)
-            .marginRight(5.percent)
+            .class([.Portfoilo.aboutContainer])
 
             Div {
                 Div {
@@ -50,12 +46,13 @@ final class PortfoiloViewController: ViewController {
                     .class(.Portfoilo.iPhone14Pro)
                 }
                 .class([.Portfoilo.deviceFrame, .Portfoilo.phone, .Portfoilo.device])
+                .onClick {
+                    self.isFocusedPhone = !self.isFocusedPhone
+                }
             }
             .class([.Portfoilo.phoneContainer])
         }
-        .display(.flex)
-        .flexDirection(.row)
-        .margin(v: 10.px, h: 5.percent)
+        .class([.Portfoilo.rootContainer])
     }
 
     override func buildUI() {
@@ -156,6 +153,7 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
                         .class([.Portfoilo.dynamicIslandContent])
                     }
                     .onClick {
+                        $1.stopPropagation()
                         self.dynamicIslandDisplay = .default
                         self.isCollapsed = !self.isCollapsed
                     }
@@ -252,6 +250,7 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
                             .class([.Portfoilo.dockItemImage])
                             .backgroundImage(dock.imgPath)
                             .onClick {
+                                $1.stopPropagation()
                                 self.dynamicIslandDisplay = dock.dynamicIslandDisplay
                                 self.isCollapsed = !self.isCollapsed
                             }
@@ -315,7 +314,34 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
 
 // MARK: - StyleSheet
 extension PortfoiloViewController {
-    func dynamicIslandContentInActive() -> Stylesheet {
+    @DOM
+    func dynamicIslandToggleStyleSheet() -> DOM.Content {
+        Stylesheet {
+            CSSRule(Class.Portfoilo.dynamicIsland)
+                .margin(v: 0, h: .auto)
+                .outlineWidth(0)
+                .backgroundColor(.black)
+                .transitionDuration(.seconds(0.3))
+                .transitionTimingFunction(.cubicBezier(0.4, 0, 0.2, 1))
+                .cursor(.pointer)
+        }
+
+        Stylesheet {
+            CSSRule(Class.Portfoilo.dynamicIsland)
+                .width(120.px)
+                .height(35.px)
+                .borderRadius(all: .length(22.px))
+        }
+        .disabled(self.$isCollapsed.map { !$0 })
+
+        Stylesheet {
+            CSSRule(Class.Portfoilo.dynamicIsland)
+                .width(371.px)
+                .height(84.px)
+                .borderRadius(all: .length(42.px))
+        }
+        .disabled(self.$isCollapsed)
+
         Stylesheet {
             CSSRule(Class.Portfoilo.dynamicIslandContent)
                 .opacity(0)
@@ -324,9 +350,8 @@ extension PortfoiloViewController {
                 .custom("transform", "scale(0.9) translateZ(0px)")
                 .height(100.percent)
         }
-    }
+        .disabled(self.$isCollapsed.map { !$0 })
 
-    func dynamicIslandContentActive() -> Stylesheet {
         Stylesheet {
             CSSRule(Class.Portfoilo.dynamicIslandContent)
                 .opacity(1)
@@ -335,35 +360,37 @@ extension PortfoiloViewController {
                 .custom("transform", "scale(0.9) translateZ(0px)")
                 .height(100.percent)
         }
+        .disabled(self.$isCollapsed)
     }
 
-    func dynamicIslandButtonInActive() -> Stylesheet {
+    @DOM
+    func phoneStyleSheet() -> DOM.Content {
         Stylesheet {
-            CSSRule(Class.Portfoilo.dynamicIsland)
-                .margin(v: 0, h: .auto)
-                .outlineWidth(0)
-                .width(120.px)
-                .height(35.px)
-                .borderRadius(all: .length(22.px))
-                .backgroundColor(.black)
-                .transitionDuration(.seconds(0.3))
-                .transitionTimingFunction(.cubicBezier(0.4, 0, 0.2, 1))
-                .cursor(.pointer)
-        }
-    }
+            CSSRule(Class.Portfoilo.phoneContainer)
+                .height(95.vh)
 
-    func dynamicIslandButtonActive() -> Stylesheet {
-        Stylesheet {
-            CSSRule(Class.Portfoilo.dynamicIsland)
-                .margin(v: 0, h: .auto)
-                .outlineWidth(0)
-                .width(371.px)
-                .height(84.px)
-                .borderRadius(all: .length(42.px))
-                .backgroundColor(.black)
-                .transitionDuration(.seconds(0.3))
-                .transitionTimingFunction(.cubicBezier(0.4, 0, 0.2, 1))
-                .cursor(.pointer)
+            MediaRule([.screen.maxWidth(1000.px)]) {
+                CSSRule(Class.Portfoilo.iPhone14Pro)
+                    .pointerEvents(.auto)
+
+                CSSRule(Class.Portfoilo.phone)
+                    .cursor(.auto)
+            }
         }
+        .disabled(self.$isFocusedPhone.map { !$0 })
+
+        Stylesheet {
+            CSSRule(Class.Portfoilo.phoneContainer)
+                .height(150.px)
+
+            MediaRule([.screen.maxWidth(1000.px)]) {
+                CSSRule(Class.Portfoilo.iPhone14Pro)
+                    .pointerEvents(.none)
+
+                CSSRule(Class.Portfoilo.phone)
+                    .cursor(.pointer)
+            }
+        }
+        .disabled(self.$isFocusedPhone)
     }
 }

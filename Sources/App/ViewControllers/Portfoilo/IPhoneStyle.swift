@@ -1,22 +1,17 @@
 import Web
 
 final class IPhoneStyle: Stylesheet {
-    @State var phoneAreaHeight: ValueWithUnit<Int>
-
-    init(phoneAreaHeight: State<ValueWithUnit<Int>>) {
-        self.phoneAreaHeight = phoneAreaHeight.wrappedValue
-        super.init()
-        phoneAreaHeight.listen {
-            self.phoneAreaHeight = $0
-        }
-    }
-
-    required init() {
-        fatalError("init() has not been implemented")
-    }
-
     @Rules
     override var rules: Stylesheet.RuleItems {
+        CSSRule(Class.Portfoilo.rootContainer)
+            .display(.flex)
+            .flexDirection(.row)
+            .margin(v: 10.px, h: 5.percent)
+
+        CSSRule(Class.Portfoilo.aboutContainer)
+            .flexGrow(1)
+            .marginRight(5.percent)
+
         CSSRule(Class.Portfoilo.device)
             .position(.relative)
             .transform(.scale(1, 1))
@@ -41,22 +36,38 @@ final class IPhoneStyle: Stylesheet {
                 .zIndex(100)
                 .top(0)
                 .marginRight(10.percent)
+                .transition([.init("height")], duration: .seconds(0.3), timingFunction: .ease)
         }
 
         MediaRule(.screen.maxWidth(1000.px)) {
             CSSRule(Class.Portfoilo.phoneContainer)
                 .custom("padding-top", "unset")
                 .width(100.percent)
-                .height(self.$phoneAreaHeight)
                 .position(.fixed)
                 .custom("top", "unset")
                 .left(0)
                 .bottom(0)
                 .justifyContent(.center)
-                .pointerEvents(.none)
-                .transitionProperty(.init("transform"))
-                .transitionTimingFunction(.ease)
-                .transitionDuration(.seconds(0.12))
+                .transition([.init("height")], duration: .seconds(0.3), timingFunction: .ease)
+
+            CSSRule(Class.Portfoilo.deviceFrame.before)
+                .property(.content, "")
+                .position(.absolute)
+                .top(-7.px)
+                .left(-7.px)
+                .right(-7.px)
+                .bottom(-7.px)
+                .transition([.init("border")], duration: .seconds(0.12), timingFunction: .ease)
+                .borderWidth(.length(8.px))
+                .borderStyle(.solid)
+                .borderColor(r: 255, g: 255, b: 255, a: 0)
+                .borderRadius(all: .length(74.px))
+
+            CSSRule(Class.Portfoilo.deviceFrame.hover.before)
+                .borderColor(r: 255, g: 255, b: 255, a: 0.25)
+
+            CSSRule(Class.Portfoilo.aboutContainer)
+                .marginBottom(200.px)
         }
 
         CSSRule(Class.Portfoilo.deviceScreen)
@@ -192,6 +203,8 @@ final class IPhoneStyle: Stylesheet {
 }
 
 extension Class.Portfoilo {
+    static let rootContainer: Class = "RootContainer"
+    static let aboutContainer: Class = "AboutContainer"
     static let phone: Class = "Phone"
     static let phoneContainer: Class = "PhoneContainer"
     static let device: Class = "Device"

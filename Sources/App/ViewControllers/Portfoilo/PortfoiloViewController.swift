@@ -52,7 +52,7 @@ final class PortfoiloViewController: ViewController {
         IPhoneStyle()
         DockStyle()
         dynamicIslandToggleStyleSheet()
-        phoneStyleSheet()
+        phoneFocusToggleStyleSheet()
     }
 
     override func buildUI() {
@@ -369,7 +369,7 @@ extension PortfoiloViewController {
     }
 
     @DOM
-    func phoneStyleSheet() -> DOM.Content {
+    func phoneFocusToggleStyleSheet() -> DOM.Content {
         Stylesheet {
             CSSRule(Class.Portfoilo.phoneContainer)
                 .height(95.vh)

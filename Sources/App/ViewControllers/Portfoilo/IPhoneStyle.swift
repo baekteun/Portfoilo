@@ -15,7 +15,6 @@ final class IPhoneStyle: Stylesheet {
         CSSRule(Class.Portfoilo.device)
             .position(.relative)
             .transform(.scale(1, 1))
-            .transformOrigin(.value(x: .center, y: .top))
             .zIndex(1)
 
         CSSRule(Class.Portfoilo.phone)
@@ -196,9 +195,11 @@ final class IPhoneStyle: Stylesheet {
         Keyframes("move")
             .from {
                 Transform(.scale(0, 0))
+                Top(-434.px)
             }
             .to {
                 Transform(.scale(1, 1))
+                Top(0)
             }
     }
 }

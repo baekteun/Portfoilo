@@ -15,10 +15,11 @@ final class IPhoneStyle: Stylesheet {
         CSSRule(Class.Portfoilo.device)
             .position(.relative)
             .transform(.scale(1, 1))
+            .transformOrigin(.value(x: .center, y: .top))
             .zIndex(1)
 
         CSSRule(Class.Portfoilo.phone)
-            .transition([.all], duration: .seconds(0.2), timingFunction: .ease)
+            .transition([.init("transform")], duration: .seconds(0.68), timingFunction: .easeInOut)
             .animationName("move")
             .animationDuration(1.s)
 
@@ -195,11 +196,9 @@ final class IPhoneStyle: Stylesheet {
         Keyframes("move")
             .from {
                 Transform(.scale(0, 0))
-                Top(-434.px)
             }
             .to {
                 Transform(.scale(1, 1))
-                Top(0)
             }
     }
 }

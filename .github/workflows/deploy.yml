@@ -1,0 +1,46 @@
+name: Github Pages
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  deploy:
+    runs-on: macos-12
+    strategy:
+      matrix:
+        swift: ["5.7"]
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Webber
+        run: brew install swifweb/tap/webber
+
+      - name: Release Webber
+        run: webber release
+
+      - name: Config Git
+        run: |
+          git config --global user.name 'baekteun'
+          git config --global user.email 'baegteun@gmail.com'
+          git config pull.rebase false
+          git checkout -t origin/gh-pages
+          git pull origin gh-pages
+          git merge master
+
+      - name: Remove Prev Web
+        run: |
+          rm -rf ./docs
+
+      - name: Result move to docs
+        run: |
+          mv .webber/release/ .
+          mv release docs
+
+      - name: git commit & push
+        run: |
+          git add -A
+          git commit -m ":rocket: :: github pages deploy"
+          git push
+

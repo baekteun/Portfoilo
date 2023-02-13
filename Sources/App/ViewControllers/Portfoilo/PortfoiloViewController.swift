@@ -15,6 +15,8 @@ final class PortfoiloViewController: ViewController {
                 ForEach(Project.liveValue) { project in
                     self.projectView(project: project)
                 }
+
+                self.footerView()
             }
             .class([.Portfoilo.aboutContainer])
 
@@ -309,6 +311,40 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
             ProjectInfoView(project: project)
         }
         .id(Id(stringLiteral: project.id))
+    }
+
+    @DOM
+    func footerView() -> DOM.Content {
+        Footer {
+            P("Copyright © baegteun 2023")
+                .margin(v: 10.px, h: 0)
+
+            Div {
+                P("Built in Swift using")
+
+                A("SwifWeb")
+                    .href("https://github.com/swifweb/web")
+                    .marginLeft(5.px)
+            }
+            .class([.Portfoilo.footerItem])
+
+            Div {
+                A("Github")
+                    .href("https://github.com/baekteun")
+
+                Div().class([.Portfoilo.textDivider])
+
+                A("Mail")
+                    .href("mailto:baegteun@gmail.com")
+
+                Div().class([.Portfoilo.textDivider])
+
+                A("Discord")
+                    .href("https://discord.com/users/330273418119479297")
+            }
+            .class([.Portfoilo.footerItem])
+        }
+        .class([.Portfoilo.footer])
     }
 }
 

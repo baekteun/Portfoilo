@@ -79,9 +79,30 @@ final class PortfoiloStyle: Stylesheet {
             .color(.white)
 
         CSSRule(Class.Portfoilo.textDivider)
+            .color(.Portfoilo.gray)
             .width(1.px)
             .height(10.px)
             .margin(v: 0, h: 5.px)
+
+        CSSRule(Class.Portfoilo.footer)
+            .fontSize(.large)
+            .fontWeight(.init("600"))
+            .lineHeight(0.px)
+            .marginTop(50.px)
+            .color(.Portfoilo.gray)
+            .alignItems(.center)
+            .justifyContent(.flexStart)
+            .display(.flex)
+            .flexDirection(.column)
+        
+        CSSRule(Class.Portfoilo.footerItem)
+            .display(.inlineFlex)
+            .flexDirection(.row)
+            .alignItems(.center)
+            .margin(v: 5.px, h: 0)
+
+        CSSRule(Class.Portfoilo.footerItem.parent(A.pointer))
+            .custom("target", "_blank")
             .color(.Portfoilo.gray)
     }
 }
@@ -97,6 +118,8 @@ extension Class {
         static let projectBanner: Class = "ProjectBanner"
         static let projectTitle: Class = "ProjectTitle"
         static let textDivider: Class = "TextDivider"
+        static let footer: Class = "PortfoiloFooter"
+        static let footerItem: Class = "PortfoiloFooterItem"
     }
 }
 

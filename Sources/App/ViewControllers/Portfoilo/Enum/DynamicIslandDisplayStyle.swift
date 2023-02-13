@@ -9,11 +9,14 @@ enum DynamicIslandDisplayStyle {
 extension DynamicIslandDisplayStyle {
     var link: String {
         switch self {
-        case .`default`, .github:
+        case .`default`:
+            return "https://baegteun.notion.site/Portfoilo-6dbc2078bf324958aa4ffb523d0cdbe2"
+
+        case .github:
             return "https://github.com/baekteun"
             
         case .telephone:
-            return "https://baegteun.notion.site/Portfoilo-6dbc2078bf324958aa4ffb523d0cdbe2"
+            return "https://discord.com/users/330273418119479297"
 
         case .mail:
             return "mailto:baegteun@gmail.com"
@@ -25,21 +28,24 @@ extension DynamicIslandDisplayStyle {
 
     var name: String {
         switch self {
-        case .telephone, .appStore:
+        case .`default`, .appStore:
             return "최형우"
 
-        case .`default`, .mail, .github:
+        case .mail, .github, .telephone:
             return "baegteun"
         }
     }
 
     var subName: String {
         switch self {
-        case .`default`, .github:
+        case .`default`:
+            return "Notion"
+
+        case .github:
             return "Github"
 
         case .telephone:
-            return "Notion"
+            return "Discord"
 
         case .mail:
             return "Mail"

@@ -1,6 +1,6 @@
 enum DynamicIslandDisplayStyle {
     case `default`
-    case telephone
+    case discord
     case mail
     case appStore
     case github
@@ -15,7 +15,7 @@ extension DynamicIslandDisplayStyle {
         case .github:
             return "https://github.com/baekteun"
             
-        case .telephone:
+        case .discord:
             return "https://discord.com/users/330273418119479297"
 
         case .mail:
@@ -31,7 +31,7 @@ extension DynamicIslandDisplayStyle {
         case .`default`, .appStore:
             return "최형우"
 
-        case .mail, .github, .telephone:
+        case .mail, .github, .discord:
             return "baegteun"
         }
     }
@@ -44,7 +44,7 @@ extension DynamicIslandDisplayStyle {
         case .github:
             return "Github"
 
-        case .telephone:
+        case .discord:
             return "Discord"
 
         case .mail:

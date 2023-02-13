@@ -24,10 +24,10 @@ final class ProjectInfoView: Div {
                     .lineHeight(20.px)
 
                 P(self.project.role)
-                    .color(.gray)
+                    .color(.Portfoilo.gray)
 
                 P(self.project.period)
-                    .color(.gray)
+                    .color(.Portfoilo.gray)
             }
             .fontSize(.large)
             .class(.sectionContainer)

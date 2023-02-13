@@ -9,7 +9,7 @@ final class PortfoiloStyle: Stylesheet {
         CSSRule(Body.pointer)
             .margin(all: 5.px)
             .padding(all: 5.px)
-            .backgroundColor(.black)
+            .backgroundColor(.init(.init("#0C0C0E")))
 
         CSSRule(Class.Portfoilo.appWrapper)
             .custom("margin", "0 auto")
@@ -82,7 +82,7 @@ final class PortfoiloStyle: Stylesheet {
             .width(1.px)
             .height(10.px)
             .margin(v: 0, h: 5.px)
-            .backgroundColor(.gray)
+            .color(.Portfoilo.gray)
     }
 }
 
@@ -97,5 +97,11 @@ extension Class {
         static let projectBanner: Class = "ProjectBanner"
         static let projectTitle: Class = "ProjectTitle"
         static let textDivider: Class = "TextDivider"
+    }
+}
+
+extension Color {
+    struct Portfoilo {
+        static let gray = Color(.init("#A6A6A6"))
     }
 }

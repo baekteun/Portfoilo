@@ -82,7 +82,7 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
 10년 뒤에도 함께 일하고 싶은 동료 개발자로 성장하는 것이 목표입니다.
 
 """)
-            .color(.init(r: 153, g: 153, b: 153))
+            .color(.init(.init("#A6A6A6")))
             .fontSize(.length(18.px))
             .lineHeight(1.45)
             .marginRight(20.px)
@@ -117,7 +117,7 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
                                 P(self.$dynamicIslandDisplay.map { $0.subName })
                                     .fontSize(0.875.rem)
                                     .margin(all: 0)
-                                    .color(r: 107, g: 114, b: 128)
+                                    .color(.init(.init("#A6A6A6")))
 
                                 H2(self.$dynamicIslandDisplay.map { $0.name })
                                     .marginTop(0)
@@ -280,14 +280,14 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
 
                     if let fullName = project.fullName {
                         P("\(fullName)")
-                            .color(.gray)
+                            .color(.init(.init("#A6A6A6")))
                             .fontStyle(.italic)
                     }
 
                     Div {
                         ForEach(project.links) { index, link in
                             A(link.name)
-                                .color(.gray)
+                                .color(.Portfoilo.gray)
                                 .href(link.url)
                                 .target(.blank)
                             

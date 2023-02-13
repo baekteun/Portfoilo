@@ -3,7 +3,6 @@
 /Packages
 /*.xcodeproj
 xcuserdata/
-/.webber
 /.webber/dev
 /.webber/release
 /.webber/entrypoint/dev/.ssl

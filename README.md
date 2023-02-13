@@ -7,7 +7,7 @@ Swift를 사용한 포트폴리오 웹사이트
 <br>
 
 ## 🔗 Links
-[Web](https://baegteun.com/index)
+[Web](https://baegteun.com)
 
 <br>
 

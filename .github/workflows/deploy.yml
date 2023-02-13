@@ -27,7 +27,7 @@ jobs:
           git config pull.rebase false
           git fetch --all
           git checkout -t origin/gh-pages
-          git pull origin gh-pages
+          git pull origin gh-pages --allow-unrelated-histories
           git merge master
 
       - name: Remove Prev Web

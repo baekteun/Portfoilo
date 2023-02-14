@@ -18,7 +18,7 @@ Swift를 사용한 포트폴리오 웹사이트
 
 ## 🤔 Experiences
 - Swift로 웹페이지 구축! (?)
-  - SwifWeb을 사용하여 오직 Swift만 사용하여 웹페이지 구축
+  - SwifWeb을 사용하여 오직 Swift로만 코드를 작성하여 웹페이지 구축
   - WASM에 대한 미약한 공부
   - 간접적인 css 사용법
 

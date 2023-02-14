@@ -73,7 +73,7 @@ final class PortfoiloViewController: ViewController {
     @DOM
     func introduceView() -> DOM.Content {
         Header {
-            H1("수상할 정도로 다양한 경험을 지닌 📚 주니어 iOS 개발자 최형우입니다!")
+            H1("수상할 정도로 다양한 경험을 지닌 📚 주니어 iOS 개발자 baegteun입니다!")
                 .color(.white)
 
             P("""

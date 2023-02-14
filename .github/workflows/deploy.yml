@@ -28,7 +28,6 @@ jobs:
           git fetch --all
           git checkout -t origin/gh-pages
           git pull origin gh-pages --allow-unrelated-histories
-          git merge master --allow-unrelated-histories
 
       - name: Remove Prev Web
         run: |

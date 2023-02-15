@@ -38,6 +38,11 @@ jobs:
           mv .webber/release/ .
           mv release docs
 
+      - name: Create CNAME file in docs
+        run: |
+          touch docs/CNAME
+          echo "baegteun.com" >> docs/CNAME
+
       - name: git commit & push
         run: |
           git add -A

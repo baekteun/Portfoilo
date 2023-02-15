@@ -54,4 +54,23 @@ extension DynamicIslandDisplayStyle {
             return "AppStore"
         }
     }
+
+    var srcPath: String {
+        switch self {
+        case .`default`:
+            return "images/baegteun.jpeg"
+
+        case .github:
+            return "images/dock/github.png"
+
+        case .discord:
+            return "images/dock/discord.jpg"
+
+        case .appStore:
+            return "images/dock/appstore.png"
+
+        case .mail:
+            return "images/dock/mail.png"
+        }
+    }
 }

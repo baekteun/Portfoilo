@@ -58,6 +58,7 @@ final class ProjectInfoView: Div {
                                 .backgroundColor(r: 41, g: 41, b: 39)
                                 .padding(v: 0.px, h: 5.px)
                                 .borderRadius(all: .length(4.px))
+                                .lineHeight(25.px)
                         }
                         .margin(v: 2.5.px, h: 3.px)
                     }

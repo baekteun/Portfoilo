@@ -31,12 +31,15 @@ jobs:
 
       - name: Remove Prev Web
         run: |
+          mv ./docs/index.html ./index.html
           rm -rf ./docs
 
       - name: Result move to docs
         run: |
+          rm -rf .webber/release/index.html
           mv .webber/release/ .
           mv release docs
+          mv ./index.html ./docs/index.html
 
       - name: Create CNAME file in docs
         run: |

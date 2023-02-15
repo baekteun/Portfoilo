@@ -43,6 +43,7 @@ extension Project {
         grig,
         moiza,
         gcms,
+        webPortfoilo,
         gauth,
         justMemo
     ]
@@ -293,6 +294,30 @@ private let justMemo = Project(
             "SwiftUI",
             "MVI",
             "GRDB.swift"
+        ]
+    )
+)
+private let webPortfoilo = Project(
+    id: "WEBPORTFOILO",
+    name: "Portfoilo Website",
+    links: [
+        .init(name: "Github", url: "https://github.com/baekteun/Portfoilo"),
+        .init(name: "WebSite", url: "https://baegteun.com")
+    ],
+    bannerURL: "https://user-images.githubusercontent.com/74440939/219048677-32145ade-1ea7-446b-bfd6-2dd4348d6e65.png",
+    role: "Web Developer",
+    period: "2023.02. ~ 릴리즈",
+    projectInfo: .init(
+        summary: "",
+        experiences: [
+            "SwifWeb을 사용하여 Swift코드만 작성해 웹페이지 구축",
+            "wasm에 대한 미약한 공부",
+            "css에 대한 간접적인 학습"
+        ],
+        stack: [
+            "SwifWeb",
+            "SwiftWasm",
+            "JavaScriptKit"
         ]
     )
 )

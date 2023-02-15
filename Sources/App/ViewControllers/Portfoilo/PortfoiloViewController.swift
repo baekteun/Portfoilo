@@ -145,7 +145,7 @@ iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 
                         Div {
                             Div {
                                 Img()
-                                    .src("https://avatars.githubusercontent.com/u/74440939?v=4")
+                                    .srcSet(self.$dynamicIslandDisplay.map { $0.srcPath })
                                     .class([.Portfoilo.profileImage])
                             }
                             .class([.Portfoilo.dynamicIslandProfile])

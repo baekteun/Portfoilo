@@ -6,6 +6,9 @@ final class PortfoiloStyle: Stylesheet {
         CSSRule(Html.pointer)
             .scrollBehavior(.smooth)
 
+        CSSRule(H1.pointer, H2.pointer, H3.pointer, H4.pointer, H5.pointer, H6.pointer, P.pointer, A.pointer, Li.pointer)
+            .fontFamily(.spoqaHanSans)
+
         CSSRule(Body.pointer)
             .margin(all: 5.px)
             .padding(all: 5.px)

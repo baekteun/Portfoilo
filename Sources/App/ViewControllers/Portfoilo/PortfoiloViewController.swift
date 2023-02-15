@@ -48,6 +48,12 @@ final class PortfoiloViewController: ViewController {
             .class([.Portfoilo.phoneContainer])
         }
         .class([.Portfoilo.rootContainer])
+        Head {
+            Link()
+                .href("//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css")
+                .rel(.stylesheet)
+                .type("text/css")
+        }
 
         PortfoiloStyle()
         DynamicIslandStyle()

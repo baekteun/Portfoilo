@@ -53,6 +53,34 @@ final class PortfoiloViewController: ViewController {
                 .href("//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css")
                 .rel(.stylesheet)
                 .type("text/css")
+
+            Link()
+                .href("images/favicon.png")
+                .rel(.icon)
+
+            Meta()
+                .name("twitter:card")
+                .content("summary")
+
+            Meta()
+                .name("twitter:site")
+                .content("Baegteun's Portfoilo")
+
+            Meta()
+                .name("twitter:url")
+                .content("https://www.baegteun.com")
+
+            Meta()
+                .name("twitter:title")
+                .content("baegteun's portfoilo")
+
+            Meta()
+                .name("twitter:description")
+                .content("An iOS Engineer baegteun's Portfoilo Website")
+
+            Meta()
+                .name("twitter:image")
+                .content("https://avatars.githubusercontent.com/u/74440939?v=4")
         }
 
         PortfoiloStyle()
@@ -67,6 +95,7 @@ final class PortfoiloViewController: ViewController {
     override func buildUI() {
         super.buildUI()
         title = "baegteun's Portfoilo"
+        metaDescription = "An iOS Developer baegteun's Portfoilo Website"
         self.value = JSObject.global.setInterval.function!(JSClosure({ _ in
             let date = JSDate()
             let hour = String(format: "%02d", date.hours)

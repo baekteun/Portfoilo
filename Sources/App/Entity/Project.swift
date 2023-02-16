@@ -286,7 +286,7 @@ private let justMemo = Project(
     role: "iOS Developer",
     period: "2022.12. ~ 릴리즈",
     projectInfo: .init(
-        summary: "홈화면, 잠금화면 위젯에서 바로 접근할 수 있는 접근성과 정말 단순히 메모만 하는 기능이 서비스",
+        summary: "홈화면, 잠금화면 위젯에서 바로 접근할 수 있는 접근성과 정말 단순히 메모만 하는 앱",
         experiences: [
             "SwiftUI와 MVI를 사용한 단방향 상태관리에 대해 경험"
         ],

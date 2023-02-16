@@ -311,7 +311,7 @@ private let webPortfoilo = Project(
         summary: "",
         experiences: [
             "SwifWeb을 사용하여 Swift코드만 작성해 웹페이지 구축",
-            "wasm에 대한 미약한 공부",
+            "wasm에 대한 미약한 학습",
             "css에 대한 간접적인 학습"
         ],
         stack: [

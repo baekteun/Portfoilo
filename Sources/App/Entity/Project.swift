@@ -63,13 +63,10 @@ private let gui = Project(
     projectInfo: ProjectInfo(
         summary: "광주소프트웨어마이스터고등학교 교내 서비스 통합 시스템",
         experiences: [
-            "Github Action을 사용한 CI를 구축. Dependency 캐싱을 통해 기존 30분이상 걸리던 CI 시간을 5분내외로 절약",
-            "iOS 팀 내 테크스펙을 도입하여 개발 효율성 증대",
-            "모듈 구조 설계",
-            "Features - Services - Core - Shared로 4 레이어를 가지도록 설계",
-            "Feature와 Service는 도메인 관점에서 분리, Core와 Shared는 재사용 관점에서 분리",
-            "Micro Feature를 적용하여 Target도 모듈화",
-            "Swift를 사용한 모듈 생성 자동화"
+            "iOS 팀 내에 테크스펙을 도입하여 개발 효율성을 증대시키고자 한 경험이 있습니다.",
+            "모듈식 아키텍쳐 구조를 Feature - Service - Core - Shared로 4계층으로, Feature는 주로 유저와 맞닿는 Presentation영역, Service는 주요 비즈니스 로직을 처리하는 영역, Core는 모듈들의 공통적으로 쓰일 기능을 가진 영역, Shared는 외부 의존성과 완전히 분리된 공통 로직을 가진 영역을 기준으로 레이어를 분리하였습니다. Feature와 Service레이어는 도메인 관점에서, Core와 Shared는 재사용 관점에서 하위 모듈을 분리하도록 레이어를 설계하였습니다.",
+            "이전 프로젝트에서 Feature와 Feature간 의존성을 연결할 때 순환 참조에 관한 이슈를 경험한 적이 있어, Project단위의 모듈 분리만이 아닌 Project안에서도 Target을 Micro Feature를 사용하여 수평확장이 용이하도록 설계하였습니다.",
+            "Swift를 사용하여 모듈 생성, 외부 의존성 추가 등의 반복되고 귀찮은 작업을 간편하게 할 수 있도록 Scaffold를 만든 경험이 있습니다."
         ],
         stack: [
             "UIKit",
@@ -91,14 +88,9 @@ private let simtong = Project(
     projectInfo: ProjectInfo(
         summary: "(주) 로쏘 - 성심당 사내 일정 관리 서비스",
         experiences: [
-            "Xcode Cloud를 사용한 CI/CD 구축",
-            "모듈 구조 설계",
-            "Feature - Service - Modules의 3 레이어를 가지게 설계",
-            "Feature를 도메인 관점으로 분리, 이외의 레이어는 재사용 관점에서 분리하도록 유도",
-            "iOS 파트 내 테크 스펙 도입",
-            "python을 사용하여 모듈을 생성하는 것을 자동화",
-            "Makefile을 사용하여 여러 자동화 명령어 정의",
-            "SwiftUI와 MVVM의 상태 관리에 불편함을 느껴 The Composable Architecture로 마이그레이션 작업 중"
+            "Xcode Cloud를 사용하여 CI/CD를 구축하여 업무 효율성을 높힌 경험이 있습니다.",
+            "모듈식 아키텍쳐 구조를 Feature - Service - Module 로 3계층으로, Feature는 주로 유저와 맞닿는 Presentation영역, Service는 주요 비즈니스 로직을 처리하는 영역, Module는 모듈들의 공통적으로 쓰일 기능을 가진 영역을 기준으로 레이어를 분리하였습니다.",
+            "SwiftUI와 MVVM을 사용한 상태 관리에 불편함을 느껴 The Composable Architecture로 마이그레이션 작업을 진행하고 있습니다."
         ],
         stack: [
             "SwiftUI",
@@ -124,10 +116,11 @@ private let dms = Project(
     projectInfo: ProjectInfo(
         summary: "전국의 기숙사를 위한 기숙사 관리 시스템 제공 서비스",
         experiences: [
-            "스프린트마다 KPT회고를 하며 팀의 성장을 도모",
-            "모듈 구조 설계",
-            "개발 효율성 증대를 위해 Xcode 템플릿 제작",
-            "SwiftUI에서 Carousel View를 만드는 경험"
+            "스프린트의 끝마다 KPT 회고를 하여 팀의 성장을 도모한 경험이 있습니다. 이를 통해 팀원 간의 소통이 원활히 일어나며, 문제점을 더 빠르게 파악하고 해결할 수 있었습니다. 또한, 이를 통해 팀원들이 서로에게 피드백을 제공하며 서로 발전할 수 있는 기회를 만들었습니다.",
+            "Presentation 레이어에서 새로운 Feature모듈을 만들 때 항상 만드는 파일들을 Xcode 파일 템플릿을 제작하여 같은 형식의 코드를 작성할 때 드는 시간을 약 30초가량 절약한 경험이 있습니다. 이를 통해 Scaffold 세팅 시간을 단축시키고, 이를 공유함으로써 팀원들도 같은 방식으로 작업할 수 있어 개발 효율성을 높일 수 있었습니다.",
+            "Python을 사용해 모듈의 Scaffold를 만든 경험이 있습니다. 이를 통해 모듈 경로 extension, 모듈의 Project 설정 등의 반복되는 작업을 자동화에 모듈 기본 세팅에 들이는 시간을 단축한 경험이 있습니다.",
+            "개발 효율성을 위해 iOS 파트내에서 테크 스펙을 도입한 경험이 있습니다.",
+            "Makefile을 사용해 여러줄에 거쳐 실행해야하는 명령어를 간소화한 경험이 있습니다."
         ],
         stack: [
             "SwiftUI",
@@ -208,9 +201,8 @@ private let moiza = Project(
     projectInfo: .init(
         summary: "전국 소프트웨어마이스터고등학교의 학생들과 졸업생, 재학생의 소통을 연결하는 SNS",
         experiences: [
-            "Github Action을 사용한 CI 구축",
-            "소통과 일정 관리가 잘 이루어지지 않아 프로젝트의 진척도가 크게 느렸고 결국엔 끝을 내지 못한 경험",
-            "이후부터는 프로젝트를 진행하며 일정 관리에 대한 중요도를 인지하고 일정 관련 일에 주도적, 적극적으로 참여"
+            "프로젝트를 진행할 때 소통이 잘 이루어지지 않아 분야 막론 전체적인 진척도가 느리거나 한 명에게 리소스가 과하게 집중되는 등의 일이 일어났고 결국에는 끝을 내지 못하였습니다. 이때 프로젝트 진행 동기, 일정 관리 등에 중요성을 크게 느꼈습니다.",
+            "이후부터는 프로젝트를 진행하며 일정 관리에 대한 중요도를 인지하고 일정 관련 일에 주도적, 적극적으로 참여하였습니다."
         ],
         stack: [
             "ReactorKit",
@@ -235,10 +227,8 @@ private let gcms = Project(
     projectInfo: .init(
         summary: "광주소프트웨어마이스터고등학교의 동아리를 관리하는 서비스",
         experiences: [
-            "Github Action을 사용한 CI 구축, 의존성 캐싱을 통해 기존보다 10분을 절감시킨 경험",
-            "문서화가 제대로 되지 않았고, 자잘한 회의의 결과 같은게 잘 공유되지 않아 겪은 트러블이 많아 문서화와 소통에 대한 중요성에 대해 크게 인지",
-            "ReactorKit을 사용한 단방향 상태관리에 대한 경험",
-            "RxFlow를 사용한 Coordinator 패턴에 대한 경험",
+            "GIthub Action을 사용해 CI를 구축하였습니다. 이때 의존성 캐싱을 사용해 CI 시간을 기존에 비해 10분 절감시킨 경험이 있습니다.",
+            "작은 회의 결과같은게 구두로만 이루어지고 기록으로도 남지않아 사람마다 같은 기능에 다른 생각을 가지거나, 아예 모르는 등의 사태가 일어남에 따라 소통 및 문서화의 중요성에 대해 크게 인지할 수 있었습니다.",
             "fastlane을 사용한 CD(TestFlight) 구축"
         ],
         stack: [
@@ -263,9 +253,9 @@ private let gauth = Project(
     projectInfo: .init(
         summary: "광주소프트웨어마이스터고등학교 교내 OAuth 서비스",
         experiences: [
-            "기획, 문서 작성에 95%이상 참여",
-            "애자일 프로세스 도입 경험",
-            "백엔드 개발 10%이상 참여"
+            "프로젝트 기획과 문서 작성에 95% 이상 참여하였습니다. 이를 위해 수많은 회의를 진행하고 협력하여 프로젝트에 필요한 요구사항들을 정의하였습니다.",
+            "프로젝트를 성공적으로 완수하기 위해 애자일 프로세스를 도입하여 프로젝트를 진행한 경험이 있습니다. 이를 통해 프로젝트 일정등을 효율적으로 관리하고, 팀원들과의 원활한 의사소통을 유지하며 프로젝트를 성공적으로 완료하였습니다.",
+            "백엔드 개발에도 10% 이상 참여하였습니다."
         ],
         stack: [
             "Notion",
@@ -288,7 +278,7 @@ private let justMemo = Project(
     projectInfo: .init(
         summary: "홈화면, 잠금화면 위젯에서 바로 접근할 수 있는 접근성과 정말 단순히 메모만 하는 앱",
         experiences: [
-            "SwiftUI와 MVI를 사용한 단방향 상태관리에 대해 경험"
+            "SwiftUI와 MVI를 사용한 단방향 상태관리에 대해 경험이 있습니다."
         ],
         stack: [
             "SwiftUI",
@@ -310,9 +300,11 @@ private let webPortfoilo = Project(
     projectInfo: .init(
         summary: "",
         experiences: [
-            "SwifWeb을 사용하여 Swift코드만 작성해 웹페이지 구축",
-            "wasm에 대한 미약한 학습",
-            "css에 대한 간접적인 학습"
+            "SwifWeb을 사용하여 Swift코드만 작성해 웹페이지를 구축하였습니다.",
+            "wasm에 대한 미약한 학습을 하였습니다.",
+            "css에 대한 간접적인 학습을 하였습니다.",
+            "Github Action을 사용해 Github Pages에 CD를 구축한 경험이 있습니다.",
+            "Cloudflare를 사용한 DNS 설정을 한 경험이 있습니다."
         ],
         stack: [
             "SwifWeb",

@@ -107,7 +107,8 @@ private let dms = Project(
     name: "DMS",
     fullName: "Dormitory Management System",
     links: [
-        RelatedLink(name: "Github", url: "https://github.com/team-aliens/DMS-iOS")
+        RelatedLink(name: "Github", url: "https://github.com/team-aliens/DMS-iOS"),
+        .init(name: "AppStore", url: "https://apps.apple.com/kr/app/dms-기숙사-관리-시스템/id6443398432")
     ],
     bannerURL: "https://user-images.githubusercontent.com/74440939/217276039-04895d45-908a-45ac-be68-a0abe58c2f10.png",
     role: "iOS Developer, iOS Leader",
@@ -118,6 +119,7 @@ private let dms = Project(
         experiences: [
             "스프린트의 끝마다 KPT 회고를 하여 팀의 성장을 도모한 경험이 있습니다. 이를 통해 팀원 간의 소통이 원활히 일어나며, 문제점을 더 빠르게 파악하고 해결할 수 있었습니다. 또한, 이를 통해 팀원들이 서로에게 피드백을 제공하며 서로 발전할 수 있는 기회를 만들었습니다.",
             "Presentation 레이어에서 새로운 Feature모듈을 만들 때 항상 만드는 파일들을 Xcode 파일 템플릿을 제작하여 같은 형식의 코드를 작성할 때 드는 시간을 약 30초가량 절약한 경험이 있습니다. 이를 통해 Scaffold 세팅 시간을 단축시키고, 이를 공유함으로써 팀원들도 같은 방식으로 작업할 수 있어 개발 효율성을 높일 수 있었습니다.",
+            "위젯에서 액세스 토큰이 필요해 Keychaing Sharing을 통해 앱과 위젯의 키체인을 공유하여 사용할 수 있게한 경험이 있습니다.",
             "Python을 사용해 모듈의 Scaffold를 만든 경험이 있습니다. 이를 통해 모듈 경로 extension, 모듈의 Project 설정 등의 반복되는 작업을 자동화에 모듈 기본 세팅에 들이는 시간을 단축한 경험이 있습니다.",
             "개발 효율성을 위해 iOS 파트내에서 테크 스펙을 도입한 경험이 있습니다.",
             "Makefile을 사용해 여러줄에 거쳐 실행해야하는 명령어를 간소화한 경험이 있습니다."

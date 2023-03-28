@@ -80,21 +80,7 @@ final class PortfoiloViewController: ViewController {
     @DOM
     func introduceView() -> DOM.Content {
         Header {
-            H1("수상할 정도로 다양한 경험을 지닌 📚 주니어 iOS 개발자 baegteun입니다!")
-                .color(.white)
-
-            P("""
-iOS 개발자가 되기로 결심한 이후로 (주) 로쏘의 성심당 사내 일정 관리 서비스 심통, 전국 기숙사 관리 시스템 서비스 DMS, 교내 동아리 관리 시스템 GCMS 등의 여러 프로젝트에서 iOS 개발 팀장을 맡고 실제로 출시 및 유지보수를 해보며 실무에 빠르게 적응할 수 있는 개발자가 되고자 하였습니다.
-
-소프트웨어 개발은 개발을 마치는 것이 아니라 효율적으로 유지하고 보수하는 것이 중요하다고 생각합니다. 그렇기에 팀 내에서 Swift 스타일 가이드 작성과 문서화 업무의 담당, 클린코드 준수, 인프라 구축 등에 주도적으로 기여하였습니다.
-
-10년 뒤에도 함께 일하고 싶은 동료 개발자로 성장하는 것이 목표입니다.
-
-""")
-            .color(.init(.init("#A6A6A6")))
-            .fontSize(.length(18.px))
-            .lineHeight(1.45)
-            .marginRight(20.px)
+            H1("")
         }
         .display(.flex)
         .flexDirection(.column)

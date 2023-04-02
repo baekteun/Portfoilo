@@ -11,7 +11,7 @@ let package = Package(
         .executable(name: "App", targets: ["App"])
     ],
     dependencies: [
-        .package(url: "https://github.com/swifweb/web", from: "1.0.0-beta.1.19.0")
+        .package(url: "https://github.com/swifweb/web", from: "1.0.0-beta.3.2.0")
     ],
     targets: [
         .target(name: "App", dependencies: [

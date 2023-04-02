@@ -1,6 +1,6 @@
 import Web
 
-final class PortfoiloViewController: ViewController {
+final class PortfoiloViewController: PageController {
     private var value: JSValue?
     @State var dateString = "00:00"
     @State var isCollapsed = false

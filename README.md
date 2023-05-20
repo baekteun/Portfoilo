@@ -12,15 +12,8 @@ Swift를 사용한 포트폴리오 웹사이트
 <br>
 
 ## 📸 Screenshot
-![image](https://user-images.githubusercontent.com/74440939/218421349-6df80ec2-870b-4312-a344-332c8280130f.png)
+![image](https://github.com/baekteun/Portfoilo/assets/74440939/d561a113-ceba-4c32-a92d-71411559fdc6)
 
-<br>
-
-## 🤔 Experiences
-- Swift로 웹페이지 구축! (?)
-  - SwifWeb을 사용하여 오직 Swift로만 코드를 작성하여 웹페이지 구축
-  - WASM에 대한 미약한 공부
-  - 간접적인 css 사용법
 
 <br>
 
@@ -34,4 +27,5 @@ $ webber serve
 
 ## :clap: Credits
 Respect for @MihaelIsaev !
+
 Inspired by https://github.com/junhoyeo/paracosm 
